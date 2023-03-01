@@ -4,7 +4,9 @@
 
 ## Overview
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. This web app allows you to track what books have impacted you, and what's recommended to read next.
+Introducing KitchenIt - your ultimate solution for pantry organization and meal planning! With our innovative digital platform, you can easily add ingredients that you have in your home and instantly access a treasure trove of mouth-watering meal ideas.
+
+No more staring aimlessly at your pantry, wondering what to cook with the ingredients on hand. KitchenIt makes it a breeze to whip up delicious meals that satisfy your cravings and culinary ambitions. And if you need to stock up on a few additional items, our platform will guide you every step of the way.
 
 ## Getting Started
 
