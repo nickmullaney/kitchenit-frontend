@@ -5,7 +5,7 @@ import About from './About';
 import Main from './Main';
 import MyCookbook from './MyCookbook';
 import MyKitchen from './MyKitchen';
-import logo from "./img/logo.gif";
+
 
 import {
   BrowserRouter as Router,
