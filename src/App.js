@@ -5,6 +5,7 @@ import About from './About';
 import Main from './Main';
 import MyCookbook from './MyCookbook';
 import MyKitchen from './MyKitchen';
+import Footer from './Footer';
 
 
 import {
@@ -12,12 +13,14 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+// import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <>
       <Router>
         <Header />
+        <Main/>
         <Routes>
           <Route
             exact path="/"
@@ -37,13 +40,7 @@ function App() {
           >
           </Route>
         </Routes>
-        <Main/>
-        <div>
-       
-        </div>
-        <div className="App">
-          <h1>Hello</h1>
-        </div>
+        <Footer/>
       </Router>
     </>
   );
