@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 // import logo from "./img/logo.png";
 import "./Main.css";
+import { motion as m } from "framer-motion";
 
 // import background from "./img/background.jpg"
 // import animatedLogo from "./img/logoAnimate.gif";
@@ -18,7 +19,12 @@ class Main extends React.Component {
 
   render() {
     return (
-      <>
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.75, ease: "easeOut" }}
+        
+      >
 
         <Container className="main">
           <div className="main-content">
@@ -27,11 +33,11 @@ class Main extends React.Component {
               Introducing KitchenIt - your ultimate solution for pantry organization and meal planning! With our innovative digital platform, you can easily add ingredients that you have in your home and instantly access a treasure trove of mouth-watering meal ideas.
             </div>
             <button className="button">Learn More</button>
-            
+
           </div>
         </Container>
 
-      </>
+      </m.div>
     )
   }
 }

@@ -6,7 +6,8 @@ import Footer from './components/Footer';
 import About from './About';
 import MyCookbook from './MyCookbook';
 import MyKitchen from './MyKitchen';
-
+// import { motion as m } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import {
   BrowserRouter as Router,
@@ -22,26 +23,35 @@ function App() {
         <Header />
 
         <Routes>
-          
-          <Route
-            exact path="/"
-            element={<Main />}
-          ></Route>
-          
-          <Route
-            path={"/myKitchen"}
-            element={<MyKitchen />}
-          ></Route>
-          
-          <Route
-            path={"/myCookbook"}
-            element={<MyCookbook />}
-          ></Route>
+          {/* <AnimatePresence> */}
+            <Route
+              exact path="/"
+              element={<Main />}
+            ></Route>
+          {/* </AnimatePresence> */}
 
-          <Route
-            path={"/about"}
-            element={<About />}
-          ></Route>
+          {/* <AnimatePresence> */}
+            <Route
+              path={"/myKitchen"}
+              element={<MyKitchen />}
+            ></Route>
+          {/* </AnimatePresence> */}
+
+          {/* <AnimatePresence> */}
+            <Route
+              path={"/myCookbook"}
+              element={<MyCookbook />}
+            ></Route>
+          {/* </AnimatePresence> */}
+
+
+          {/* <AnimatePresence> */}
+            <Route
+              path={"/about"}
+              element={<About />}
+            ></Route>
+          {/* </AnimatePresence> */}
+
         </Routes>
         <Footer />
       </Router>
