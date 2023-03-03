@@ -7,7 +7,7 @@ import About from './About';
 import MyCookbook from './MyCookbook';
 import MyKitchen from './MyKitchen';
 // import { motion as m } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+// import { AnimatePresence } from 'framer-motion';
 
 import {
   BrowserRouter as Router,
