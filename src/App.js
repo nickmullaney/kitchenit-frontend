@@ -1,11 +1,11 @@
 import './App.css';
 // import axios from 'axios';
-import Header from './Header';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 import About from './About';
-import Main from './Main';
 import MyCookbook from './MyCookbook';
 import MyKitchen from './MyKitchen';
-import Footer from './Footer';
 
 
 import {
@@ -20,27 +20,30 @@ function App() {
     <>
       <Router>
         <Header />
-        <Main/>
+
         <Routes>
+          
           <Route
             exact path="/"
-          >
-          </Route>
+            element={<Main />}
+          ></Route>
+          
           <Route
             path={"/myKitchen"}
             element={<MyKitchen />}
           ></Route>
-                    <Route
+          
+          <Route
             path={"/myCookbook"}
             element={<MyCookbook />}
           ></Route>
+
           <Route
             path={"/about"}
             element={<About />}
-          >
-          </Route>
+          ></Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   );
