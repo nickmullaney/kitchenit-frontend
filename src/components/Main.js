@@ -1,13 +1,12 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import LearnMore from "./LearnMore";
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import LearnMore from './LearnMore';
 // import logo from "./img/logo.png";
-import "./Main.css";
-import { motion as m } from "framer-motion";
+import './Main.css';
+import { motion as m } from 'framer-motion';
 
 // import background from "./img/background.jpg"
 // import animatedLogo from "./img/logoAnimate.gif";
-
 
 class Main extends React.Component {
   // constructor(props){
@@ -25,7 +24,7 @@ class Main extends React.Component {
     };
     this.setModalShow = this.setModalShow.bind(this);
   }
-  
+
   setModalShow(show) {
     this.setState({ modalShow: show });
   }
@@ -36,8 +35,8 @@ class Main extends React.Component {
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.75, ease: "easeOut" }}
-        
+        transition={{ duration: 0.75, ease: 'easeOut' }}
+
       >
 
         <Container className="main">
@@ -51,7 +50,7 @@ class Main extends React.Component {
           </div>
         </Container>
 
-        
+
 
         <LearnMore
           show={this.state.modalShow}
@@ -60,8 +59,8 @@ class Main extends React.Component {
 
       </m.div>
 
-      
-    )
+
+    );
   }
 }
 
