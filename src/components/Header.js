@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Navbar, NavItem} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../img/altlogo1a.png"
+import logo from "../img/logo1.png"
 import './Nav.css';
 
 class Header extends React.Component {
