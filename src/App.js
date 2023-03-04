@@ -1,5 +1,4 @@
 import './components/App.css';
-import axios from 'axios';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
