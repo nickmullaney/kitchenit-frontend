@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import LearnMore from "../LearnMore";
+import LearnMore from "./LearnMore";
 // import logo from "./img/logo.png";
 import "./Main.css";
 import { motion as m } from "framer-motion";

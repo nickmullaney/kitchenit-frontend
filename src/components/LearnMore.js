@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 class LearnMore extends Component {
   render() {
-    const { onHide, show } = this.props;
+    const { onHide } = this.props;
     return (
       <Modal
         {...this.props}
