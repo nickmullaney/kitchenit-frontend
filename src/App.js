@@ -1,11 +1,12 @@
 import './components/App.css';
-// import axios from 'axios';
+import axios from 'axios';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import About from './components/About';
 import MyCookbook from './components/MyCookbook';
 import MyKitchen from './components/MyKitchen'
+import FilteredRecipes from './components/FilteredRecipes';
 // import { motion as m } from 'framer-motion';
 // import { AnimatePresence } from 'framer-motion';
 
@@ -46,9 +47,13 @@ class App extends React.Component{
     // TODO: deleteCookbookRecipe()
   }
 
-  // TODO: getKitchenIngredients()
+  async getKitchenIngredients() {
+    // TODO: getKitchenIngredients()
+  }
 
+  async deleteKitchenIngredient() {
   // TODO: deleteKitchenIngredient()
+  }
 
   render() {
     return (
@@ -74,7 +79,7 @@ class App extends React.Component{
             {/* <AnimatePresence> */}
               <Route
                 path={"/filteredRecipes"}
-                element={<filteredRecipes />}
+                element={<FilteredRecipes />}
               ></Route>
             {/* </AnimatePresence> */}
   
