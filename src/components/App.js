@@ -1,11 +1,11 @@
-import './components/App.css';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import About from './components/About';
-import MyCookbook from './components/MyCookbook';
-import MyKitchen from './components/MyKitchen'
-import FilteredRecipes from './components/FilteredRecipes';
+import './App.css';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import About from './About';
+import MyCookbook from './MyCookbook';
+import MyKitchen from './MyKitchen';
+import FilteredRecipes from './FilteredRecipes';
 // import { motion as m } from 'framer-motion';
 // import { AnimatePresence } from 'framer-motion';
 
@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 // import { Container } from 'react-bootstrap';
@@ -59,48 +59,48 @@ class App extends React.Component{
       <>
         <Router>
           <Header />
-  
+
           <Routes>
             {/* <AnimatePresence> */}
-              <Route
-                exact path="/"
-                element={<Main />}
-              ></Route>
-            {/* </AnimatePresence> */}
-  
-            {/* <AnimatePresence> */}
-              <Route
-                path={"/myKitchen"}
-                element={<MyKitchen />}
-              ></Route>
+            <Route
+              exact path="/"
+              element={<Main />}
+            ></Route>
             {/* </AnimatePresence> */}
 
             {/* <AnimatePresence> */}
-              <Route
-                path={"/filteredRecipes"}
-                element={<FilteredRecipes />}
-              ></Route>
+            <Route
+              path={'/myKitchen'}
+              element={<MyKitchen />}
+            ></Route>
             {/* </AnimatePresence> */}
-  
+
             {/* <AnimatePresence> */}
-              <Route
-                path={"/myCookbook"}
-                element={<MyCookbook
-                  kitchenIngredients={this.state.kitchenIngredients}
-                  cookbookRecipes={this.state.cookbookRecipes}
-                  deleteCookbookRecipe={this.deleteCookbookRecipe}
-                 />}
-              ></Route>
+            <Route
+              path={'/filteredRecipes'}
+              element={<FilteredRecipes />}
+            ></Route>
             {/* </AnimatePresence> */}
-  
-  
+
             {/* <AnimatePresence> */}
-              <Route
-                path={"/about"}
-                element={<About />}
-              ></Route>
+            <Route
+              path={'/myCookbook'}
+              element={<MyCookbook
+                kitchenIngredients={this.state.kitchenIngredients}
+                cookbookRecipes={this.state.cookbookRecipes}
+                deleteCookbookRecipe={this.deleteCookbookRecipe}
+              />}
+            ></Route>
             {/* </AnimatePresence> */}
-  
+
+
+            {/* <AnimatePresence> */}
+            <Route
+              path={'/about'}
+              element={<About />}
+            ></Route>
+            {/* </AnimatePresence> */}
+
           </Routes>
           <Footer />
         </Router>
