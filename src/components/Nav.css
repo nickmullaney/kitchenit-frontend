@@ -1,0 +1,62 @@
+.navbar {
+  /* display: flex; */
+  /* flex-direction: row; */
+  background-color: rgb(251, 245, 237);
+  /* border: 1px solid black; */
+  /* justify-content: space-between; */
+}
+
+.container {
+  /* display: flex;
+  flex-direction:row;
+  margin-left: 1rem;
+  margin-right: 1rem; */
+}
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-lg,
+.navbar > .container-md,
+.navbar > .container-sm,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  justify-content: space-around;
+  padding: 0.75rem;
+}
+
+.nav-link {
+  color: #814827;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  font-size: 22px;
+  /* background-color: #5e799e; */
+  border-radius: 25px;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nav-item :hover {
+  transition: 1s;
+  color: #c06d1f;
+
+  /* Fire Effect */
+  /* box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0); 
+/* box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0); */
+}
+
+.loginButton {
+  background-color: rgb(251, 245, 237);
+  border: none;
+  color: #814827;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.App-logo {
+  border-radius: 5px;
+  padding: 0.5rem;
+  max-height: 8rem;
+}
