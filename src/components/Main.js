@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import LearnMore from "../LearnMore";
 // import logo from "./img/logo.png";
 import "./Main.css";
 import { motion as m } from "framer-motion";
@@ -17,6 +18,19 @@ class Main extends React.Component {
   //   }
   // }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalShow: false
+    };
+    this.setModalShow = this.setModalShow.bind(this);
+  }
+  
+  setModalShow(show) {
+    this.setState({ modalShow: show });
+  }
+
+
   render() {
     return (
       <m.div
@@ -32,12 +46,21 @@ class Main extends React.Component {
             <div className="main-content-text">
               Introducing KitchenIt - your ultimate solution for pantry organization and meal planning! With our innovative digital platform, you can easily add ingredients that you have in your home and instantly access a treasure trove of mouth-watering meal ideas.
             </div>
-            <button className="button">Learn More</button>
+            <button className="button" onClick={() => this.setModalShow(true)} >Learn More</button>
 
           </div>
         </Container>
 
+        
+
+        <LearnMore
+          show={this.state.modalShow}
+          onHide={() => this.setModalShow(false)}
+        />
+
       </m.div>
+
+      
     )
   }
 }
