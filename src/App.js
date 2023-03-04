@@ -14,49 +14,90 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
 // import { Container } from 'react-bootstrap';
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Header />
+class App extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      cookbookRecipes: [],
+      kitchenIngredients: [],
+    };
+  }
 
-        <Routes>
-          {/* <AnimatePresence> */}
-            <Route
-              exact path="/"
-              element={<Main />}
-            ></Route>
-          {/* </AnimatePresence> */}
+  componentDidMount() {
+    this.getKitchenIngredients;
+    this.getCookbook;
+  }
 
-          {/* <AnimatePresence> */}
-            <Route
-              path={"/myKitchen"}
-              element={<MyKitchen />}
-            ></Route>
-          {/* </AnimatePresence> */}
+  async getCookbook() {
+    const url = `${process.env.REACT_APP_SERVER}/cookbook`;
+    try {
+      const response = await axios.get(url);
+      this.setState({ cookbookRecipes: response.data});
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-          {/* <AnimatePresence> */}
-            <Route
-              path={"/myCookbook"}
-              element={<MyCookbook />}
-            ></Route>
-          {/* </AnimatePresence> */}
+  // TODO: getKitchenIngredients()
+  // TODO: deleteKitchenIngredient()
+  // TODO: deleteCookbookRecipe()
 
+  render() {
+    return (
+      <>
+        <Router>
+          <Header />
+  
+          <Routes>
+            {/* <AnimatePresence> */}
+              <Route
+                exact path="/"
+                element={<Main />}
+              ></Route>
+            {/* </AnimatePresence> */}
+  
+            {/* <AnimatePresence> */}
+              <Route
+                path={"/myKitchen"}
+                element={<MyKitchen />}
+              ></Route>
+            {/* </AnimatePresence> */}
 
-          {/* <AnimatePresence> */}
-            <Route
-              path={"/about"}
-              element={<About />}
-            ></Route>
-          {/* </AnimatePresence> */}
-
-        </Routes>
-        <Footer />
-      </Router>
-    </>
-  );
+            {/* <AnimatePresence> */}
+              <Route
+                path={"/filteredRecipes"}
+                element={<filteredRecipes />}
+              ></Route>
+            {/* </AnimatePresence> */}
+  
+            {/* <AnimatePresence> */}
+              <Route
+                path={"/myCookbook"}
+                element={<MyCookbook
+                  kitchenIngredients={this.state.kitchenIngredients}
+                  cookbookRecipes={this.state.cookbookRecipes}
+                 />}
+              ></Route>
+            {/* </AnimatePresence> */}
+  
+  
+            {/* <AnimatePresence> */}
+              <Route
+                path={"/about"}
+                element={<About />}
+              ></Route>
+            {/* </AnimatePresence> */}
+  
+          </Routes>
+          <Footer />
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;
