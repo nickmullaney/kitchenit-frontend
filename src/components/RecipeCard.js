@@ -47,12 +47,12 @@ class RecipeCard extends React.Component {
           <Card.Img src={recipe.imageUrl} alt={recipe.name} title={recipe.name}/>
           <Card.Body>
             <Card.Title>{this.props.name}</Card.Title>
-            <button onClick={this.props.handleDeleteRecipe}>Remove</button>
+            <button onClick={this.props.deleteCookbookRecipe}>Remove</button>
           </Card.Body>
         </Card>
         <RecipeModal
           {...recipe}
-          handleDeleteRecipe={this.props.handleDeleteRecipe}
+          deleteCookbookRecipe={this.props.deleteCookbookRecipe}
           comparedIngredients={this.state.comparedIngredients}
           show={this.state.showModal}
           close={this.handleCloseModal}/>

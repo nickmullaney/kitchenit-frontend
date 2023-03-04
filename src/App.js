@@ -42,9 +42,13 @@ class App extends React.Component{
     }
   }
 
+  async deleteCookbookRecipe() {
+    // TODO: deleteCookbookRecipe()
+  }
+
   // TODO: getKitchenIngredients()
+
   // TODO: deleteKitchenIngredient()
-  // TODO: deleteCookbookRecipe()
 
   render() {
     return (
@@ -80,6 +84,7 @@ class App extends React.Component{
                 element={<MyCookbook
                   kitchenIngredients={this.state.kitchenIngredients}
                   cookbookRecipes={this.state.cookbookRecipes}
+                  deleteCookbookRecipe={this.deleteCookbookRecipe}
                  />}
               ></Route>
             {/* </AnimatePresence> */}

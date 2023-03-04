@@ -20,6 +20,7 @@ class MyCookbook extends React.Component {
                 <RecipeCard
                   recipe={recipe}
                   kitchenIngredients={this.props.kitchenIngredients}
+                  deleteCookbookRecipe={this.props.deleteCookbookRecipe}
                 />
               ))}
             </Accordion.Body>

@@ -38,7 +38,8 @@ class RecipeModal extends React.Component {
           <p>{this.props.name}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.handleCloseSelectedBeast}>Close</Button>
+          <Button onClick={this.props.close}>Close</Button>
+          <button onClick={this.props.deleteCookbookRecipe}>Remove</button>
         </Modal.Footer>
       </Modal>
     );
