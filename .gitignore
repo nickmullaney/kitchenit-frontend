@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
 
 ### Linux ###
@@ -227,7 +226,6 @@ $RECYCLE.BIN/
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 
-
 # End of https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
 <<<<<<< HEAD
 =======
@@ -246,4 +244,3 @@ Training
 Blog
 About
 seattle-code-301n29/.gitignore at main · codefellows/seattle-code-301n29
->>>>>>> 493fdf864bb23f54c6a14916fd2fc3785f60e8cd

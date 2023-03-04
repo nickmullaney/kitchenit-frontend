@@ -1,8 +1,13 @@
+.myKitchenBackground{
+    background-image: linear-gradient(rgb(59, 76, 100), rgb(134, 107, 97), rgb(251, 245, 237));
+}
+
 .kitchenItem{
     display:flex;
     align-items: center;
     border: 1px solid slategray;
     border-radius: 120px;
+    background-color: rgb(251, 245, 237);
     padding: .5rem;
     justify-content: space-around;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -14,6 +19,7 @@ border-radius: 50%;
 border: 1px solid black;
 object-fit: scale-down;
 width: 2.5rem;
+
 }
 
 .kitchenItem Button{
@@ -22,5 +28,41 @@ width: 2.5rem;
 }
 
 .g-2{
-    background-color: rgb (255,247,236);
+    background:transparent;
+}
+
+form{
+    padding: 2rem;
+    
+
+  
+    
+}
+
+
+button.addIngedient{
+    background-color: #C06D1F;
+    width: fit-content;
+    border-radius: 25px;
+    margin: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
+}
+
+button.addIngedient:hover{
+    background-color: antiquewhite;
+}
+
+button.findRecipes{
+    background-color: #728299;
+    width: fit-content;
+    border-radius: 25px;
+    margin-right: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
+  
+}
+
+button.findRecipes:hover{
+    background-color: antiquewhite;
 }
