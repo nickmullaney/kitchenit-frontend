@@ -74,7 +74,7 @@ class App extends React.Component {
     }
   };
 
-  addKitchenIgredient = async (newIngredient) => {
+  addKitchenIngredient = async (newIngredient) => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients`;
     try {
       const response = await axios.post(url, newIngredient);

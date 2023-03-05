@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import LearnMore from './LearnMore';
 // import logo from "./img/logo.png";
 import './Main.css';

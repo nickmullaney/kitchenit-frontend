@@ -9,14 +9,21 @@ class RecipeModal extends React.Component {
       <Modal
         size='lg'
         show={this.props.show}
-        onHide={this.props.close}
+           onHide={this.props.close}
         centered
       >
         <Modal.Header>
           <Modal.Title>{this.props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={this.props.imageUrl} alt={this.props.name} title={this.props.name}/>
+          <img
+            style={{
+              width: '300px',
+            }}
+            src={this.props.imageUrl}
+            alt={this.props.name}
+            title={this.props.name}
+          />
           <div className="recipe-modal-ingredients">
             <h2>Ingredients</h2>
             {this.props.comparedIngredients.map((ingredient) => (

@@ -44,7 +44,14 @@ class RecipeCard extends React.Component {
         <Card
           onClick={this.handleClick}
         >
-          <Card.Img src={recipe.imageUrl} alt={recipe.name} title={recipe.name}/>
+          <Card.Img
+            style={{
+              width: '100px',
+            }}
+            src={recipe.imageUrl}
+            alt={recipe.name}
+            title={recipe.name}
+          />
           <Card.Body>
             <Card.Title>{recipe.name}</Card.Title>
             <button onClick={(e) => this.props.deleteCookbookRecipe(e, recipe._id)}>Remove</button>
