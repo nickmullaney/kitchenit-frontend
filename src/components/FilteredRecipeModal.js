@@ -12,6 +12,7 @@ class FilteredRecipeModal extends React.Component {
         show={this.props.show}
            onHide={this.props.close}
         centered
+        className='filteredBackground'
       >
         <Modal.Header>
           <Modal.Title>{recipe.name}</Modal.Title>
