@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, NavItem} from 'react-bootstrap';
+import { Container, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../img/logo1.png';
 import './Nav.css';
@@ -9,8 +9,8 @@ class Header extends React.Component {
     return (
       <>
         <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar">
-          <img src={logo} alt="logo" className="App-logo" />
-          <Container>
+          <>
+            <NavItem className="app-logo"><img src={logo} alt="logo" className="App-logo" /></NavItem>
             <NavItem><Link id='home' to="/" className="nav-link">Home</Link></NavItem>
 
             <NavItem><Link id='myKitchen' to="/myKitchen" className="nav-link">My Kitchen</Link></NavItem>
@@ -21,7 +21,7 @@ class Header extends React.Component {
 
             <NavItem><button className="loginButton">Login</button></NavItem>
             {/* {this.props.auth0.isAuthenticated ? <Logout /> : <Login />} */}
-          </Container>
+          </>
         </Navbar>
       </>
     );

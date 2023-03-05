@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion, Button } from 'react-bootstrap';
-import { motion as m} from 'framer-motion';
+import { motion as m } from 'framer-motion';
 import RecipeCard from './RecipeCard';
 
 class MyCookbook extends React.Component {

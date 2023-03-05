@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col, Accordion} from 'react-bootstrap';
+import { Row, Col, Accordion } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
 
 class About extends React.Component {
