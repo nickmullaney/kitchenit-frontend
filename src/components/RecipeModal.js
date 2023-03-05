@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import './RecipeModal.css';
 
 class RecipeModal extends React.Component {
