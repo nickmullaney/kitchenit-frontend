@@ -31,6 +31,7 @@ class RecipeModal extends React.Component {
                   alt={ingredient.ingredientName}
                   title={ingredient.ingredientName}/>
                 <h4>{ingredient.ingredientName}</h4>
+                <h4>{ingredient.measurement}</h4>
               </div>
             ))}
           </div>
