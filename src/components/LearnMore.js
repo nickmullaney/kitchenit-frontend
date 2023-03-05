@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal} from 'react-bootstrap';
+import { motion as m } from 'framer-motion';
+import './LearnMore.css';
 
 class LearnMore extends Component {
   render() {
@@ -13,20 +15,20 @@ class LearnMore extends Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            How to use KitchenIt
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
+          <ol>
+            <li>Sign in with your email address or verified account</li>
+            <li>Add the ingredients you have in your kitchen.</li>
+            <li>Search for recipes using your ingredients.</li>
+            <li>Save the recipes you want to try or keep for later in your cookbook.</li>
+            <li>Get to know the creators of KitchenIt by checking out their page.</li>
+            <li>Get cooking!</li>
+          </ol>
+          <m.button className="button" onClick={onHide}whileHover={{scale: 1.1}} whileTap={{scale:0.9}} >Close</m.button>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={onHide}>Close</Button>
-        </Modal.Footer>
       </Modal>
     );
   }
