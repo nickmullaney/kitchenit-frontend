@@ -18,7 +18,7 @@ import React from 'react';
 import axios from 'axios';
 // import { Container } from 'react-bootstrap';
 
-class App extends React.Component{
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,7 +36,7 @@ class App extends React.Component{
     const url = `${process.env.REACT_APP_SERVER}/cookbook`;
     try {
       const response = await axios.get(url);
-      this.setState({ cookbookRecipes: response.data});
+      this.setState({ cookbookRecipes: response.data });
     } catch (err) {
       console.log(err);
     }
