@@ -15,7 +15,7 @@ class RecipeModal extends React.Component {
           <Modal.Title>{this.props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={this.props.imageUrl} alt={this.props.name} title={this.props.title}/>
+          <img src={this.props.imageUrl} alt={this.props.name} title={this.props.name}/>
           <div className="recipe-modal-ingredients">
             <h2>Ingredients</h2>
             {this.props.comparedIngredients.map((ingredient) => (
@@ -23,23 +23,30 @@ class RecipeModal extends React.Component {
                 key={ingredient._id}
                 className={ingredient.hasIngredient ? 'have-ingredient' : 'missing-ingredient'}
               >
-                <img src={ingredient.imageUrl} alt={ingredient.name} title={ingredient.title}/>
-                <h2>{ingredient.name}</h2>
+                <img
+                  style={{
+                    width: '2.5rem',
+                  }}
+                  src={ingredient.imageUrl}
+                  alt={ingredient.ingredientName}
+                  title={ingredient.ingredientName}/>
+                <h4>{ingredient.ingredientName}</h4>
+                <h4>{ingredient.measurement}</h4>
               </div>
             ))}
           </div>
           <div className="instructions">
+            <h2>Instructions</h2>
             <ol>
               {this.props.instructions.map((step, i) => (
                 <li key={i+1}>{step}</li>
               ))}
             </ol>
           </div>
-          <p>{this.props.name}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.close}>Close</Button>
-          <button onClick={this.props.deleteCookbookRecipe}>Remove</button>
+          <button onClick={this.props.close}>Close</button>
+          <button onClick={(e) => this.props.deleteCookbookRecipe(e, this.props._id)}>Remove</button>
         </Modal.Footer>
       </Modal>
     );

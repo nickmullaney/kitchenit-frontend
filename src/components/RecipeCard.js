@@ -19,14 +19,14 @@ class RecipeCard extends React.Component {
     const kitchenIngredientSet = new Set();
     this.props.kitchenIngredients.forEach(ingredient => kitchenIngredientSet.add(ingredient));
     const comparedRecipeIngredients = this.props.recipe.ingredients.map(ingredient => {
-      if(kitchenIngredientSet.has(ingredient.name)) {
+      if(kitchenIngredientSet.has(ingredient.ingredientName)) {
         ingredient.hasIngredient = true;
       } else {
         ingredient.hasIngredient = false;
       }
       return ingredient;
     });
-    this.props.setState({comparedIngredients: comparedRecipeIngredients});
+    this.setState({comparedIngredients: comparedRecipeIngredients});
   };
 
   handleClick = () => {
@@ -46,8 +46,8 @@ class RecipeCard extends React.Component {
         >
           <Card.Img src={recipe.imageUrl} alt={recipe.name} title={recipe.name}/>
           <Card.Body>
-            <Card.Title>{this.props.name}</Card.Title>
-            <button onClick={this.props.deleteCookbookRecipe}>Remove</button>
+            <Card.Title>{recipe.name}</Card.Title>
+            <button onClick={(e) => this.props.deleteCookbookRecipe(e, recipe._id)}>Remove</button>
           </Card.Body>
         </Card>
         <RecipeModal
