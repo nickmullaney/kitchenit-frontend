@@ -41,13 +41,16 @@ class MyKitchen extends React.Component {
 
 
           <Row xs={1} md={3} lg={6} className="g-2">
-            {Array.from({ length:20 }).map((_, idx) => (
-              <Col>
+            {this.props.kitchenIngredients.map((ingredient) => (
+              <Col key={ingredient._id}>
 
                 <div className="kitchenItem">
-                  <img src="https://www.themealdb.com/images/ingredients/Lime-Small.png" alt="ingredient"/>
-                  <h2> Ingredient</h2>
-                  <Button variant="danger"><FontAwesomeIcon icon={faTrashCan} /></Button>
+                  <img src={ingredient.imageUrl} alt={ingredient.name} title={ingredient.name}/>
+                  <h2>{ingredient.name}</h2>
+                  <Button
+                    variant="danger"
+                    onClick={() => this.props.deleteKitchenIngredient(ingredient._id)}
+                  ><FontAwesomeIcon icon={faTrashCan} /></Button>
                 </div>
 
               </Col>
