@@ -54,11 +54,16 @@ class App extends React.Component {
     }
   };
 
-  addRecipeToCookbook = async (newRecipe) =>{
+  addRecipeToCookbook = async (e, newRecipe) =>{
+    e.stopPropagation();
     const url = `${process.env.REACT_APP_SERVER}/cookbook`;
     try {
       const response = await axios.post(url, newRecipe);
       this.setState({ cookbookRecipes: [...this.state.cookbookRecipes, response.data]});
+      /* We need a way to keep track of the id for our FilteredRecipe component. We set state to update the cookbook recipes, but each individual recipe can be added or removed from the cookbook from the FilteredRecipe component. 
+      
+      To keep track of this, we'll return the id of the created recipe, which will be set in state for each individual filtered recipe which has been added to the cookbook. */
+      return response.data._id;
     } catch (err) {
       console.log(err);
     }
@@ -74,7 +79,7 @@ class App extends React.Component {
     }
   };
 
-  addKitchenIgredient = async (newIngredient) => {
+  addKitchenIngredient = async (newIngredient) => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients`;
     try {
       const response = await axios.post(url, newIngredient);
@@ -126,7 +131,9 @@ class App extends React.Component {
               path={'/filteredRecipes'}
               element={<FilteredRecipes
                 kitchenIngredients={this.state.kitchenIngredients}
+                cookbookRecipes={this.state.cookbookRecipes}
                 addRecipeToCookbook={this.addRecipeToCookbook}
+                deleteCookbookRecipe={this.deleteCookbookRecipe}
               />}
             ></Route>
             {/* </AnimatePresence> */}

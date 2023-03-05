@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion, Button } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
-import RecipeCard from './RecipeCard';
+import CookbookRecipeCard from './CookbookRecipeCard';
 
 class MyCookbook extends React.Component {
 
@@ -17,7 +17,7 @@ class MyCookbook extends React.Component {
             <Accordion.Header>Accordion Item #1 </Accordion.Header>
             <Accordion.Body>
               {this.props.cookbookRecipes.map((recipe) => (
-                <RecipeCard
+                <CookbookRecipeCard
                   key={recipe._id}
                   recipe={recipe}
                   kitchenIngredients={this.props.kitchenIngredients}
