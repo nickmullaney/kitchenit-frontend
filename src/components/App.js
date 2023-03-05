@@ -42,7 +42,8 @@ class App extends React.Component{
     }
   };
 
-  deleteCookbookRecipe = async (id) => {
+  deleteCookbookRecipe = async (e, id) => {
+    e.stopPropagation();
     const url = `${process.env.REACT_APP_SERVER}/cookbook/${id}`;
     try {
       await axios.delete(url);

@@ -16,8 +16,9 @@ class MyCookbook extends React.Component {
           <Accordion.Item eventKey="0">
             <Accordion.Header>Accordion Item #1 </Accordion.Header>
             <Accordion.Body>
-              {this.props.cookBookRecipes.map((recipe) => (
+              {this.props.cookbookRecipes.map((recipe) => (
                 <RecipeCard
+                  key={recipe._id}
                   recipe={recipe}
                   kitchenIngredients={this.props.kitchenIngredients}
                   deleteCookbookRecipe={this.props.deleteCookbookRecipe}
