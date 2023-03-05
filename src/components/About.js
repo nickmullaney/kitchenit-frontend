@@ -1,10 +1,12 @@
 import React from 'react';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
+import './About.css'
 
 class About extends React.Component {
   render() {
     return (
+      <div className='about'>
       <m.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.75, ease: 'easeInOut'}}>
         <Row xs={1} md={2} lg={4} className="g-2">
           {Array.from({ length:4 }).map((_, idx) => (
@@ -28,6 +30,7 @@ class About extends React.Component {
           ))}
         </Row>
       </m.div>
+      </div>
     );
   }
 }

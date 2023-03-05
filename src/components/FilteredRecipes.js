@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import FilteredRecipeCard from './FilteredRecipeCard';
+import './FilteredRecipes.css';
 
 class FilteredRecipes extends React.Component{
   constructor(props) {
@@ -56,7 +57,7 @@ class FilteredRecipes extends React.Component{
   render() {
     return (
       // Only render components if there are ingredients in the kitchen and there are recipes returned from the server
-      <>
+      <div className='filteredBackground'>
         {(this.props.kitchenIngredients.length > 0 && this.state.filteredRecipeList.length > 0) ? this.state.filteredRecipeList.map((recipe) => (
           <FilteredRecipeCard
             key={recipe.apiId}
@@ -64,9 +65,10 @@ class FilteredRecipes extends React.Component{
             kitchenIngredients={this.props.kitchenIngredients}
             addRecipeToCookbook={this.props.addRecipeToCookbook}
             deleteCookbookRecipe={this.props.deleteCookbookRecipe}
+            
           />
         )) : <h2>No Recipes to Show!</h2>}
-      </>     
+      </div>     
     );
   }
 }
