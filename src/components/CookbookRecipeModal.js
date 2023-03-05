@@ -1,15 +1,15 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 // import { Button } from 'react-bootstrap';
-import './RecipeModal.css';
+import './CookbookRecipeModal.css';
 
-class RecipeModal extends React.Component {
+class CookbookRecipeModal extends React.Component {
   render() {
     return(
       <Modal
         size='lg'
         show={this.props.show}
-           onHide={this.props.close}
+        onHide={this.props.close}
         centered
       >
         <Modal.Header>
@@ -26,9 +26,9 @@ class RecipeModal extends React.Component {
           />
           <div className="recipe-modal-ingredients">
             <h2>Ingredients</h2>
-            {this.props.comparedIngredients.map((ingredient) => (
+            {this.props.comparedIngredients.map((ingredient, i) => (
               <div
-                key={ingredient._id}
+                key={i}
                 className={ingredient.hasIngredient ? 'have-ingredient' : 'missing-ingredient'}
               >
                 <img
@@ -61,4 +61,4 @@ class RecipeModal extends React.Component {
   }
 }
 
-export default RecipeModal;
+export default CookbookRecipeModal;

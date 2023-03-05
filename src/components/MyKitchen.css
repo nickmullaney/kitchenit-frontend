@@ -36,7 +36,7 @@ form{
 }
 
 
-button.addIngedient{
+.addIngredient{
     background-color: #C06D1F;
     width: fit-content;
     border-radius: 25px;
@@ -44,11 +44,11 @@ button.addIngedient{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-button.addIngedient:hover{
+.addIngredient:hover{
     background-color: antiquewhite;
 }
 
-button.findRecipes{
+.findRecipes{
     background-color: #728299;
     width: fit-content;
     border-radius: 25px;
@@ -58,6 +58,6 @@ button.findRecipes{
   
 }
 
-button.findRecipes:hover{
+.findRecipes:hover{
     background-color: antiquewhite;
 }

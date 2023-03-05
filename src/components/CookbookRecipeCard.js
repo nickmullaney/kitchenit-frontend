@@ -1,8 +1,8 @@
 import React from 'react';
-import RecipeModal from './RecipeModal';
+import CookbookRecipeModal from './CookbookRecipeModal';
 import Card from 'react-bootstrap/Card';
 
-class RecipeCard extends React.Component {
+class CookbookRecipeCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class RecipeCard extends React.Component {
 
   getIngredientComparison = () => {
     const kitchenIngredientSet = new Set();
-    this.props.kitchenIngredients.forEach(ingredient => kitchenIngredientSet.add(ingredient));
+    this.props.kitchenIngredients.forEach(ingredient => kitchenIngredientSet.add(ingredient.name));
     const comparedRecipeIngredients = this.props.recipe.ingredients.map(ingredient => {
       if(kitchenIngredientSet.has(ingredient.ingredientName)) {
         ingredient.hasIngredient = true;
@@ -57,7 +57,7 @@ class RecipeCard extends React.Component {
             <button onClick={(e) => this.props.deleteCookbookRecipe(e, recipe._id)}>Remove</button>
           </Card.Body>
         </Card>
-        <RecipeModal
+        <CookbookRecipeModal
           {...recipe}
           deleteCookbookRecipe={this.props.deleteCookbookRecipe}
           comparedIngredients={this.state.comparedIngredients}
@@ -68,4 +68,4 @@ class RecipeCard extends React.Component {
   }
 }
 
-export default RecipeCard;
+export default CookbookRecipeCard;

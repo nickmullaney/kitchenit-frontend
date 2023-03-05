@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './MyKitchen.css';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -67,8 +68,8 @@ class MyKitchen extends React.Component {
               <Form.Label >
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch}/>
               </Form.Label>
-              <button type="submit" className="addIngedient"> Add Ingredient </button>
-              <button className="findRecipes" onClick={() => this.setModalShow(true)}> Find Your Recipes </button>
+              <button type="submit" className="addIngredient"> Add Ingredient </button>
+              <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
             </Form.Group>
           </Form>
 
