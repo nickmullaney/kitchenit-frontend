@@ -1,14 +1,14 @@
 import React from 'react';
 import { Accordion, Button } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
-import RecipeCard from './RecipeCard';
+import CookbookRecipeCard from './CookbookRecipeCard';
+import './MyCookbook.css';
 
 class MyCookbook extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>Hello</h1>
+      <div className='myCookbookBackground'>
         <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75, ease: 'easeInOut' }}>
           <div>
             <Button as="input" type="submit" value="Add Recipe Category" />
@@ -18,8 +18,9 @@ class MyCookbook extends React.Component {
             <Accordion.Item eventKey="0">
               <Accordion.Header>Accordion Item #1 </Accordion.Header>
               <Accordion.Body>
-                {this.props.cookBookRecipes.map((recipe) => (
-                  <RecipeCard
+                {this.props.cookbookRecipes.map((recipe) => (
+                  <CookbookRecipeCard
+                    key={recipe._id}
                     recipe={recipe}
                     kitchenIngredients={this.props.kitchenIngredients}
                     deleteCookbookRecipe={this.props.deleteCookbookRecipe}
@@ -29,7 +30,7 @@ class MyCookbook extends React.Component {
             </Accordion.Item>
           </Accordion>
         </m.div>
-      </>
+      </div>
     );
   }
 }
