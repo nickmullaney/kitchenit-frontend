@@ -28,12 +28,12 @@
 
 .recipe-modal-ingredients {
   padding: 5px;
-  margin-top:15px;
+  margin-top: 15px;
 
 }
 
-.instructions{
-padding-top: 190px;
+.instructions {
+  padding-top: 190px;
 }
 
 
@@ -83,15 +83,13 @@ padding-top: 190px;
   transform: translateY(-2px);
 }
 
-.closeFilteredModal{
+.closeFilteredModal {
   width: fit-content;
   align-items: center;
   appearance: none;
-  background-image: radial-gradient(
-    100% 100% at 100% 0,
-    #aaabbb 0,
-    #3b4c64 100%
-  );
+  background-image: radial-gradient(100% 100% at 100% 0,
+      #aaabbb 0,
+      #3b4c64 100%);
   border: 0;
   border-radius: 6px;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -121,20 +119,20 @@ padding-top: 190px;
   font-weight: bolder;
 }
 
-.closeFilteredModal:active{
+.closeFilteredModal:active {
   box-shadow: #3c4fe0 0 3px 7px inset;
   transform: translateY(2px);
 }
 
-.closeFilteredModal:focus{
+.closeFilteredModal:focus {
   box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
-.closeFilteredModal:hover{
+.closeFilteredModal:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-transform: translateY(-2px);
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 .closeFilteredModal:hover {
@@ -149,15 +147,13 @@ transform: translateY(-2px);
       #814827 100%);
 }
 
-.filteredAdd{
+.filteredAdd {
   width: fit-content;
   align-items: center;
   appearance: none;
-  background-image: radial-gradient(
-    100% 100% at 100% 0,
-    #116226 0,
-    #1f8840 100%
-  );
+  background-image: radial-gradient(100% 100% at 100% 0,
+      #116226 0,
+      #1f8840 100%);
   border: 0;
   border-radius: 6px;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -187,9 +183,9 @@ transform: translateY(-2px);
   font-weight: bolder;
 }
 
-.filteredAdd:hover{
+.filteredAdd:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #185220 0 -3px 0 inset;
-transform: translateY(-2px);
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #185220 0 -3px 0 inset;
+  transform: translateY(-2px);
 
 }
