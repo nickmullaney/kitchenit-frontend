@@ -1,6 +1,9 @@
 import React from 'react';
 import CookbookRecipeModal from './CookbookRecipeModal';
 import Card from 'react-bootstrap/Card';
+import './CookbookRecipeCard.css';
+import Col from 'react-bootstrap/Col';
+
 
 class CookbookRecipeCard extends React.Component {
   constructor(props) {
@@ -41,7 +44,8 @@ class CookbookRecipeCard extends React.Component {
     const recipe = this.props.recipe;
     return (
       <>
-        <Card
+      <Col>
+        <Card className={'savedRecipeCard'}
           onClick={this.handleClick}
         >
           <Card.Img
@@ -54,7 +58,7 @@ class CookbookRecipeCard extends React.Component {
           />
           <Card.Body>
             <Card.Title>{recipe.name}</Card.Title>
-            <button onClick={(e) => this.props.deleteCookbookRecipe(e, recipe._id)}>Remove</button>
+            <button className={"removeSavedCard"} onClick={(e) => this.props.deleteCookbookRecipe(e, recipe._id)}>Remove</button>
           </Card.Body>
         </Card>
         <CookbookRecipeModal
@@ -63,6 +67,7 @@ class CookbookRecipeCard extends React.Component {
           comparedIngredients={this.state.comparedIngredients}
           show={this.state.showModal}
           close={this.handleCloseModal}/>
+          </Col>
       </>
     );
   }

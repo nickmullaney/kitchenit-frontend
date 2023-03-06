@@ -1,6 +1,7 @@
 import React from 'react';
 import FilteredRecipeModal from './FilteredRecipeModal';
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
 
 class FilteredRecipeCard extends React.Component {
   constructor(props) {
@@ -54,7 +55,8 @@ class FilteredRecipeCard extends React.Component {
     const recipe = this.props.recipe;
     return (
       <>
-        <Card
+      <Col>
+        <Card className={'recipecard'}
           onClick={this.handleClick}
         >
           <Card.Img
@@ -67,10 +69,11 @@ class FilteredRecipeCard extends React.Component {
           />
           <Card.Body>
             <Card.Title>{recipe.name}</Card.Title>
-            {this.state.hasInCookbook ? <button onClick={(e) => this.handleDeleteRecipe(e)}>Remove from Cookbook</button> : <button onClick={(e) => this.handleAddRecipe(e, recipe)}>Add to Cookbook</button>         
+            {this.state.hasInCookbook ? <button className="removeCookbook" onClick={(e) => this.handleDeleteRecipe(e)}>Remove from Cookbook</button> : <button className="addCookbook" onClick={(e) => this.handleAddRecipe(e, recipe)}>Add to Cookbook</button>         
             }
           </Card.Body>
         </Card>
+        </Col>
         <FilteredRecipeModal
           recipe={recipe}
           id={this.state.id}

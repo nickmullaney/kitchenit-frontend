@@ -1,0 +1,30 @@
+[
+    {
+        "_key": 1,
+        "name": "Matthew Austin",
+        "img_Url": "../img/matt.jpeg",
+        "description": "Matt is a software developer with a storied background in structural analysis in the aerospace industry. He hails from the exotic land of Lawrence, Kansas and, after graduating in 2011 with a degree in aerospace engineering, has spent a decade accumulating expertise in all aspects of product lifecycle management and leading technical teams to success on complex, safety critical systems. He is fervent about developing quality, customer-centric products and promoting collaborative and positive work environments. Since making the switch to software development, he has found a reignited passion for learning and he hopes to grow and develop his skills to leverage a dynamic and exciting career in tech!"
+    },
+    
+    {
+        "_key": 2,
+        "name": "Nick Mullaney",
+        "img_Url": "../img/nick.jpeg",
+        "description": "I'm a Software Developer with 17 years of experience as a Chef and team leader for some high-profile companies. I'm a crafter, creator, and storyteller with a desire to create meaningful code."
+    },
+    
+    {
+        "_key": 3,
+        "name": "Jeremy Adamson",
+        "img_Url": "../img/jeremey-adamson.jpg",
+        "description": "Jeremy currently resides in Saint Louis after relocating several times throughout the United States.They hold degrees from University of California Irvine in both computational physics and computational mathematics along with a California teaching credential.They currently work at Boeing as a systems integrator and OMS lead after taking time out of their career to be a stay at home parent and will be pursuing a Master's in computer science next fall."
+    },
+    {
+        "_key": 4,
+        "name": "Paula Davidson",
+        "img_Url": "../img/paula.png",
+        "description": "Paula is one cool cat. She lives in Tacoma, Washington. She drinks quality water and frequents the sauna. She has been a health care professional for over half a decade. These days they study deligently and watch Naruto when they get a moment. She is grateful for the oppurtunity to work with these classmates at Code Fellows! They are looking forward to an amazing career as a software developer"
+    }
+
+
+]
