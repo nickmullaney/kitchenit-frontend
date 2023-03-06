@@ -1,8 +1,195 @@
 .have-ingredient {
   background-color: green;
+  width: 150px;
+  text-align: center;
+  align-self: baseline;
+  float: right;
+  padding: 3px;
+  margin: 7px;
+  border-radius: 20px;
+  box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  -webkit-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
 }
 
 .missing-ingredient {
   background-color: red;
+  width: 125px;
+  text-align: center;
+  align-self: baseline;
+  float: left;
+  padding: 3px;
+  margin: 7px;
+  border-radius: 20px;
+  box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  -webkit-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
 }
 
+.recipe-modal-ingredients {
+  padding: 5px;
+  margin-top:15px;
+
+}
+
+.instructions{
+padding-top: 190px;
+}
+
+
+.filteredRecipeModal {
+  background-color: #3B4C64;
+}
+
+.filteredRecipeRemove {
+  width: fit-content;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0,
+      #d73838 0,
+      #bd5019 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filteredRecipeRemove {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #2d1111 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.closeFilteredModal{
+  width: fit-content;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #aaabbb 0,
+    #3b4c64 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.closeFilteredModal:active{
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.closeFilteredModal:focus{
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.closeFilteredModal:hover{
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+transform: translateY(-2px);
+}
+
+.closeFilteredModal:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #185220 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.filteredFooter {
+  background-image: radial-gradient(100% 100% at 100% 0,
+      #C06D1F 0,
+      #814827 100%);
+}
+
+.filteredAdd{
+  width: fit-content;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #116226 0,
+    #1f8840 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.filteredAdd:hover{
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #185220 0 -3px 0 inset;
+transform: translateY(-2px);
+
+}

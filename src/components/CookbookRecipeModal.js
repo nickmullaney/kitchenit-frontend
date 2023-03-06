@@ -6,7 +6,7 @@ import './CookbookRecipeModal.css';
 class CookbookRecipeModal extends React.Component {
   render() {
     return(
-      <Modal
+      <Modal className='recipeModal'
         size='lg'
         show={this.props.show}
         onHide={this.props.close}
@@ -15,7 +15,7 @@ class CookbookRecipeModal extends React.Component {
         <Modal.Header>
           <Modal.Title>{this.props.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='recipeModalBody'>
           <img
             style={{
               width: '300px',
@@ -52,9 +52,9 @@ class CookbookRecipeModal extends React.Component {
             </ol>
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          <button onClick={this.props.close}>Close</button>
-          <button onClick={(e) => this.props.deleteCookbookRecipe(e, this.props._id)}>Remove</button>
+        <Modal.Footer className='recipeModalFooter'>
+          <button className='closeButton' onClick={this.props.close}>Close</button>
+          <button className='removeButton' onClick={(e) => this.props.deleteCookbookRecipe(e, this.props._id)}>Remove</button>
         </Modal.Footer>
       </Modal>
     );
