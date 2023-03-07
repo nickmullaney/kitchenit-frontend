@@ -1,5 +1,5 @@
 .have-ingredient {
-  background-color: green;
+  background-color: rgb(19, 96, 19);
   width: 150px;
   text-align: center;
   align-self: baseline;
@@ -7,28 +7,28 @@
   padding: 3px;
   margin: 7px;
   border-radius: 20px;
-  box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
-  -webkit-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
-  -moz-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  box-shadow: 8px 6px 7px -1px rgba(71,66,66,0.75);
+  -webkit-box-shadow: 8px 6px 7px -1px rgba(71,66,66,0.75);
+  -moz-box-shadow: 8px 6px 7px -1px rgba(71,66,66,0.75);
 
 }
 
 .missing-ingredient {
-  background-color: red;
+  background-color: rgb(193, 61, 61);
   width: 125px;
   text-align: center;
   align-self: baseline;
   float: left;
   padding: 3px;
   margin: 7px;
-  border-radius: 20px;
-  box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
-  -webkit-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
-  -moz-box-shadow: 10px 19px 15px 1px rgba(0, 0, 0, 0.71);
+  border-radius: 50px;
+  box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
+  -webkit-box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
+  -moz-box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
 }
 
 .recipeModalBody {
-  background-color: #3B4C64;
+  background-color: #c1a063;
 }
 
 .recipe-modal-ingredients {

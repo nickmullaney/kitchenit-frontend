@@ -28,12 +28,15 @@ class FilteredRecipeModal extends React.Component {
           />
 
           <div className="recipe-modal-ingredients">
+            
             <h2>Ingredients</h2>
+            <div className='displayContainer'>
             {this.props.comparedIngredients.map((ingredient, i) => (
               <div
                 key={i}
                 className={ingredient.hasIngredient ? 'have-ingredient' : 'missing-ingredient'}
               >
+              <div className="ingredientsStuffContainer">
                 <img
                   style={{
                     width: '2.5rem',
@@ -41,11 +44,14 @@ class FilteredRecipeModal extends React.Component {
                   src={ingredient.imageUrl}
                   alt={ingredient.ingredientName}
                   title={ingredient.ingredientName} />
-                <h4>{ingredient.ingredientName}</h4>
-                <h4>{ingredient.measurement}</h4>
-              </div>
+                <h5>{ingredient.ingredientName}</h5>
+                <h5>{ingredient.measurement}</h5>
+                </div>
+               </div>
+
 
             ))}
+            </div>
           </div>
           <div className="instructions">
             <h2>Instructions</h2>
