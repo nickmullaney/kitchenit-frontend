@@ -8,7 +8,6 @@ import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import { motion as m } from 'framer-motion';
 import Trie from './Trie.js';
 
-
 class MyKitchen extends React.Component {
 
   constructor(props) {
