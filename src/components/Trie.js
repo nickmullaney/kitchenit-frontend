@@ -1,5 +1,3 @@
-'use strict';
-
 
 // Call 'insertWord' to load the possible words into the data structure
 // Input: The word to be inserted (String)
