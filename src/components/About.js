@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Accordion, Container } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
 import './About.css';
 // import authorInfo from "./authors.json";
