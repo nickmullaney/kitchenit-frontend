@@ -8,7 +8,6 @@ import MyKitchen from './MyKitchen';
 import FilteredRecipes from './FilteredRecipes';
 // import { motion as m } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +16,7 @@ import {
 import React from 'react';
 import axios from 'axios';
 // import { Container } from 'react-bootstrap';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,31 +24,53 @@ class App extends React.Component {
     this.state = {
       cookbookRecipes: [],
       kitchenIngredients: [],
+      dataIsLoaded: false
     };
-    
   }
 
-
-  componentDidMount() {
-    this.getKitchenIngredients();
-    this.getCookbook();
+  componentDidUpdate() {    
+    if(this.props.auth0.isAuthenticated && !this.state.dataIsLoaded){
+      this.getKitchenIngredients();
+      this.getCookbook();
+      this.setState({dataIsLoaded: true})
+    }
   }
 
   getCookbook = async () => {
     const url = `${process.env.REACT_APP_SERVER}/cookbook`;
     try {
-      const response = await axios.get(url);
+      const config = await this.getConfig();
+      const response = await axios.get(url, config);
       this.setState({ cookbookRecipes: response.data });
     } catch (err) {
       console.log(err);
     }
   };
 
+  async getConfig() {
+    try{
+      if(this.props.auth0.isAuthenticated){
+        const response = await this.props.auth0.getIdTokenClaims();
+        const jwt = response.__raw;
+        const config = {
+          headers: {'Authorization': `Bearer ${jwt}`}
+        };
+        return config;
+      }else{
+        throw new Error('Not Authorized');
+      }
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
   deleteCookbookRecipe = async (e, id) => {
     e.stopPropagation();
     const url = `${process.env.REACT_APP_SERVER}/cookbook/${id}`;
     try {
-      await axios.delete(url);
+      const config = await this.getConfig();
+      await axios.delete(url, config);
       const filteredRecipes = this.state.cookbookRecipes.filter(recipe => recipe._id !== id);
       this.setState({ cookbookRecipes: filteredRecipes });
     } catch (err) {
@@ -60,7 +82,8 @@ class App extends React.Component {
     e.stopPropagation();
     const url = `${process.env.REACT_APP_SERVER}/cookbook`;
     try {
-      const response = await axios.post(url, newRecipe);
+      const config = await this.getConfig();
+      const response = await axios.post(url, newRecipe, config);
       this.setState({ cookbookRecipes: [...this.state.cookbookRecipes, response.data] });
       /* We need a way to keep track of the id for our FilteredRecipe component. We set state to update the cookbook recipes, but each individual recipe can be added or removed from the cookbook from the FilteredRecipe component. 
       
@@ -74,7 +97,8 @@ class App extends React.Component {
   getKitchenIngredients = async () => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients`;
     try {
-      const response = await axios.get(url);
+      const config = await this.getConfig();
+      const response = await axios.get(url, config);
       this.setState({ kitchenIngredients: response.data });
     } catch (err) {
       console.log(err);
@@ -84,7 +108,8 @@ class App extends React.Component {
   addKitchenIngredient = async (newIngredient) => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients`;
     try {
-      const response = await axios.post(url, newIngredient);
+      const config = await this.getConfig();
+      const response = await axios.post(url, newIngredient, config);
       this.setState({ kitchenIngredients: [...this.state.kitchenIngredients, response.data] });
     } catch (err) {
       console.log(err);
@@ -94,7 +119,8 @@ class App extends React.Component {
   deleteKitchenIngredient = async (id) => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients/${id}`;
     try {
-      await axios.delete(url);
+      const config = await this.getConfig();
+      await axios.delete(url, config);
       const filteredIngredients = this.state.kitchenIngredients.filter(ingredient => ingredient._id !== id);
       this.setState({ kitchenIngredients: filteredIngredients });
     } catch (err) {
@@ -116,45 +142,36 @@ class App extends React.Component {
                   exact path="/"
                   element={<Main />}
                 ></Route>
-                {/* </AnimatePresence> */}
 
-                {/* <AnimatePresence> */}
                 <Route
                   path={'/myKitchen'}
-                  element={<MyKitchen
+                  element={this.props.auth0.isAuthenticated && <MyKitchen
                     kitchenIngredients={this.state.kitchenIngredients}
                     addKitchenIngredient={this.addKitchenIngredient}
                     deleteKitchenIngredient={this.deleteKitchenIngredient}
                   />}
 
                 ></Route>
-                {/* </AnimatePresence> */}
 
-                {/* <AnimatePresence> */}
                 <Route
                   path={'/filteredRecipes'}
-                  element={<FilteredRecipes
+                  element={this.props.auth0.isAuthenticated &&<FilteredRecipes
                     kitchenIngredients={this.state.kitchenIngredients}
                     cookbookRecipes={this.state.cookbookRecipes}
                     addRecipeToCookbook={this.addRecipeToCookbook}
                     deleteCookbookRecipe={this.deleteCookbookRecipe}
                   />}
                 ></Route>
-                {/* </AnimatePresence> */}
 
-                {/* <AnimatePresence> */}
                 <Route
                   path={'/myCookbook'}
-                  element={<MyCookbook
+                  element={this.props.auth0.isAuthenticated && <MyCookbook
                     kitchenIngredients={this.state.kitchenIngredients}
                     cookbookRecipes={this.state.cookbookRecipes}
                     deleteCookbookRecipe={this.deleteCookbookRecipe}
                   />}
                 ></Route>
-                {/* </AnimatePresence> */}
 
-
-                {/* <AnimatePresence> */}
                 <Route
                   path={'/about'}
                   element={<About />}
@@ -171,4 +188,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth0(App);

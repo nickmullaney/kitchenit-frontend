@@ -4,6 +4,7 @@ import FilteredRecipeCard from './FilteredRecipeCard';
 import './FilteredRecipes.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class FilteredRecipes extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class FilteredRecipes extends React.Component {
     // Only call the server if there are ingredients in the kitchen
     if (this.props.kitchenIngredients.length > 0) {
       this.getFilteredRecipeList().then(filteredRecipeList => {
-        this.getRecipeComparison(filteredRecipeList);
+        this.getRecipeComparison(filteredRecipeList.data);
       })
         .catch(err => console.log(err));
     }
@@ -25,24 +26,41 @@ class FilteredRecipes extends React.Component {
 
   getFilteredRecipeList = async () => {
     const url = `${process.env.REACT_APP_SERVER}/recipes`;
-    const ingredientListArray = this.props.kitchenIngredients.map(ingredient => ingredient.name);
-    const ingredientList = { ingredients: ingredientListArray };
     try {
-      const response = await axios.post(url, ingredientList);
+      const config = await this.getConfig();
+      const response = await axios.get(url, config);
       return response;
     } catch (err) {
       console.log(err);
     }
   };
 
+  async getConfig() {
+    try{
+      if(this.props.auth0.isAuthenticated){
+        const response = await this.props.auth0.getIdTokenClaims();
+        const jwt = response.__raw;
+        const config = {
+          headers: {'Authorization': `Bearer ${jwt}`}
+        };
+        return config;
+      }else{
+        throw new Error('Not Authorized');
+      }
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
   getRecipeComparison = (filteredRecipeList) => {
     /* We want to check in O(1) if the filtered recipes are in the cookbook, and, if so, add their ids to the filtered list.
 
     We'll use a Map of the form {name: id} for simplicity */
+
     const cookbookRecipeMap = new Map();
     this.props.cookbookRecipes.forEach(recipe => cookbookRecipeMap.set(recipe.name, recipe._id));
-
-    const comparedFilteredRecipes = filteredRecipeList.data.map(recipe => {
+    const comparedFilteredRecipes = filteredRecipeList.map(recipe => {
       if (cookbookRecipeMap.has(recipe.name)) {
         recipe.hasInCookbook = true;
         //Note the value below returns the id, as it is the value at the name key
@@ -83,4 +101,4 @@ class FilteredRecipes extends React.Component {
   }
 }
 
-export default FilteredRecipes;
+export default withAuth0(FilteredRecipes);
