@@ -16,7 +16,6 @@ class MyKitchen extends React.Component {
       fullIngredientList: [],
       currentSearch: [String],
       fullIngredientTrie: Trie
-
     };
   }
 
@@ -84,6 +83,13 @@ class MyKitchen extends React.Component {
             <Form.Group>
               <Form.Label >
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch}/>
+                {this.state.currentSearch.length > 0 && 
+                  <div>
+                    <ul>
+                      {this.state.currentSearch.map(element => <li>{element}</li>).join('')};
+                    </ul>
+                  </div>
+                }
               </Form.Label>
               <button type="submit" className="addIngredient"> Add Ingredient </button>
               <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
