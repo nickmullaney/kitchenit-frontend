@@ -1,6 +1,6 @@
 .about{
   background-color: transparent;
-  border: 2px solid red;
+
   height: 100%;
   border-radius: 10px;
   width: 100%;
@@ -29,7 +29,7 @@
 .teamCardContainer{
   display:flex;
   width:auto;
-  border:2px solid red;
+  
   border-radius: 10px;
   justify-content:space-around;
   height:min-content;
