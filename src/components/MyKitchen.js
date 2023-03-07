@@ -6,6 +6,7 @@ import { Button, Row, Col, Form } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import { motion as m } from 'framer-motion';
+import Trie from './Trie.js';
 
 
 class MyKitchen extends React.Component {
@@ -13,18 +14,25 @@ class MyKitchen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullIngredientList: []
+      fullIngredientList: [],
+      currentSearch: [String],
+      fullIngredientTrie: Trie
+
     };
   }
 
-  componentDidMount() {
+  componentDidMount() {    
+
     // Load the full recipe list into state only if it has not yet been loaded
     if (this.state.fullIngredientList.length === 0) {
-      this.getFullRecipeList();
-    }
+      this.getFullIngredientList();
+    }    
+    let Ingredients = new Trie;
+    this.state.fullIngredientList.forEach(element => Ingredients.insertWord(element.name));
+    this.setState({fullIngredientTrie: Ingredients});
   }
 
-  getFullRecipeList = async () => {
+  getFullIngredientList = async () => {
     const url = `${process.env.REACT_APP_SERVER}/ingredients/dictionary`;
     try {
       const response = await axios.get(url);
@@ -55,6 +63,16 @@ class MyKitchen extends React.Component {
 
     e.target.reset();
   };
+
+  handleSearch = event => {
+    let word = event.target.value;
+    if (word.length > 1) {
+      let ingredients = this.state.fullIngredientTrie.returnPossibleWords(word);
+      this.setState({ currentSearch: ingredients });
+    } else {
+      this.setState({ currentSearch: [String] });
+    }
+  }
 
   render() {
     return (
