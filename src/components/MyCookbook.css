@@ -3,3 +3,7 @@
   /* background-image: linear-gradient(rgb(59, 76, 100), rgb(134, 107, 97), rgb(251, 245, 237)); */
   height: 100vh;
 }
+
+.savedRecipeCard{
+  margin-left: -1rem;
+}

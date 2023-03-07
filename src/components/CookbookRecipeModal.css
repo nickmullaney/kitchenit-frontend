@@ -1,4 +1,4 @@
-.have-ingredient {
+/* .have-ingredient {
   background-color: rgb(19, 96, 19);
   width: 150px;
   text-align: center;
@@ -25,6 +25,14 @@
   box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
   -webkit-box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
   -moz-box-shadow: 8px 6px 7px -1px rgba(71, 66, 66, 0.75);
+} */
+/* 
+.recipe-modal-cookbook-ingredients{
+  border: 1px solid black;
+  height: fit-content;
+} */
+.cookbook-ingredients{
+  border: 1pm solid black;
 }
 
 .recipeModalBody {
@@ -33,6 +41,8 @@
 
 .recipe-modal-ingredients {
   padding: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
 
 }
 
