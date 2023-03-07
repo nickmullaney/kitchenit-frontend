@@ -90,7 +90,7 @@ class MyKitchen extends React.Component {
             </Form.Group>
           </Form>
 
-          <Row xs={1} md={3} lg={6} className="g-2">
+          <Row xs={2} s={2} md={3} lg={5} className="g-2">
             {this.props.kitchenIngredients.map((ingredient) => (
               <Col key={ingredient._id}>
 
