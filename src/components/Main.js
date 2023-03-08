@@ -43,7 +43,7 @@ class Main extends React.Component {
             <div className="main-content-text">
               Introducing KitchenIt - your ultimate solution for pantry organization and meal planning! With our innovative digital platform, you can easily add ingredients that you have in your home and instantly access a treasure trove of mouth-watering meal ideas.
             </div>
-            <m.button className="button" onClick={() => this.setModalShow(true)} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} >Learn More</m.button>
+            <m.button className="button" onClick={() => this.setModalShow(true)} whileHover={{scale: 1.1, x:17}} whileTap={{scale:0.9}} >Learn More</m.button>
 
           </div>
         </div>

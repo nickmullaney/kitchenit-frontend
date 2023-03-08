@@ -1,5 +1,5 @@
 .have-ingredient {
-  background-color: rgb(18, 97, 18);
+  background-image: radial-gradient( 100% 100% at 100% 0, #116226 0, #1f8840 100% );
   width: 225px;
   height: 250px;
   display: flex;
@@ -13,7 +13,7 @@
 }
 
 .missing-ingredient {
-  background-color: rgb(177, 43, 43);
+  background-image: radial-gradient( 100% 100% at 100% 0, #d73838 0, #bd5019 100% );
   width: 225px;
   height: 250px;
   display: flex;

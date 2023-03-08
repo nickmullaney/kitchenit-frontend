@@ -11,6 +11,8 @@
     #C06D1F 0,
     #814827 100%
   );
+  align-content: center;
+  justify-content: center;
   /* background-color: ; */
   
   box-shadow: rgba(0, 0, 0, 0.35) 0px -20px 36px -28px inset;
