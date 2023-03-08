@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion } from 'react-bootstrap';
+// import { Accordion } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
 import './About.css';
 // import authorInfo from "./authors.json";
@@ -14,12 +14,9 @@ class About extends React.Component {
           
             {Array.from({ length: 1 }).map((_, idx) => (
               
-                <Accordion defaultActiveKey="0" className='accordionBox'>
-
-
+                <div>
                   <TeamCard />
-
-                </Accordion>
+                </div>
             
             ))}
           

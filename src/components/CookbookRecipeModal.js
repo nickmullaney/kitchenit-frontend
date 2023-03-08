@@ -5,7 +5,7 @@ import './CookbookRecipeModal.css';
 
 class CookbookRecipeModal extends React.Component {
   render() {
-    return(
+    return (
       <Modal className='recipeModal'
         size='lg'
         show={this.props.show}
@@ -24,30 +24,36 @@ class CookbookRecipeModal extends React.Component {
             alt={this.props.name}
             title={this.props.name}
           />
+
           <div className="recipe-modal-ingredients">
+
             <h2>Ingredients</h2>
-            {this.props.comparedIngredients.map((ingredient, i) => (
-              <div
-                key={i}
-                className={ingredient.hasIngredient ? 'have-ingredient' : 'missing-ingredient'}
-              >
-                <img
-                  style={{
-                    width: '2.5rem',
-                  }}
-                  src={ingredient.imageUrl}
-                  alt={ingredient.ingredientName}
-                  title={ingredient.ingredientName}/>
-                <h4>{ingredient.ingredientName}</h4>
-                <h4>{ingredient.measurement}</h4>
-              </div>
-            ))}
+            <div className="displayContainer">
+              {this.props.comparedIngredients.map((ingredient, i) => (
+                <div
+                  key={i}
+                  className={ingredient.hasIngredient ? 'have-ingredient' : 'missing-ingredient'}
+                >
+                  <div className="ingredientsStuffContainer">
+                    <img
+                      style={{
+                        width: '2.5rem',
+                      }}
+                      src={ingredient.imageUrl}
+                      alt={ingredient.ingredientName}
+                      title={ingredient.ingredientName} />
+                    <h5>{ingredient.ingredientName}</h5>
+                    <h5>{ingredient.measurement}</h5>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="instructions">
             <h2>Instructions</h2>
             <ol>
               {this.props.instructions.map((step, i) => (
-                <li key={i+1}>{step}</li>
+                <li key={i + 1}>{step}</li>
               ))}
             </ol>
           </div>

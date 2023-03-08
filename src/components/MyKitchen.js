@@ -82,7 +82,8 @@ class MyKitchen extends React.Component {
             onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label >
-                <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch}/>
+
+                <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
                 {this.state.currentSearch.length > 0 && 
                   <div class="searchOptions">
                     <ul>
@@ -90,13 +91,16 @@ class MyKitchen extends React.Component {
                     </ul>
                   </div>
                 }
+
+                
+
               </Form.Label>
               <button type="submit" className="addIngredient"> Add Ingredient </button>
               <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
             </Form.Group>
           </Form>
 
-          <Row xs={1} md={3} lg={6} className="g-2">
+          <Row xs={2} s={2} md={3} lg={5} className="g-2">
             {this.props.kitchenIngredients.map((ingredient) => (
               <Col key={ingredient._id}>
 
