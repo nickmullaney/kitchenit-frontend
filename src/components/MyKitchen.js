@@ -14,8 +14,8 @@ class MyKitchen extends React.Component {
     super(props);
     this.state = {
       fullIngredientList: [],
-      currentSearch: [String],
-      fullIngredientTrie: Trie
+      currentSearch: [],
+      fullIngredientTrie: null
     };
   }
 
