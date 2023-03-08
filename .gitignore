@@ -227,6 +227,7 @@ $RECYCLE.BIN/
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 
+
 # End of https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
 Footer
 © 2023 GitHub, Inc.
@@ -243,4 +244,3 @@ Training
 Blog
 About
 seattle-code-301n29/.gitignore at main · codefellows/seattle-code-301n29
-
