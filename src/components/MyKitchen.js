@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './MyKitchen.css';
-import { Button, Row, Col, Form } from 'react-bootstrap';
+import { Button, Row, Form } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import { motion as m } from 'framer-motion';
