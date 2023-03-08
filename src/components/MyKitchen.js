@@ -25,6 +25,10 @@ class MyKitchen extends React.Component {
     if (this.state.fullIngredientList.length === 0) {
       this.getFullIngredientList();
     }    
+    
+  }
+
+  populateTrie = () => {
     let Ingredients = new Trie();
     this.state.fullIngredientList.forEach(element => Ingredients.insertWord(element.name));
     this.setState({fullIngredientTrie: Ingredients});
@@ -34,11 +38,13 @@ class MyKitchen extends React.Component {
     const url = `${process.env.REACT_APP_SERVER}/ingredients/dictionary`;
     try {
       const response = await axios.get(url);
-      this.setState({ fullIngredientList: response.data});
+      this.setState({ fullIngredientList: response.data}, this.populateTrie);
     } catch (err) {
       console.log(err);
     }
   };
+
+
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -62,13 +68,31 @@ class MyKitchen extends React.Component {
     e.target.reset();
   };
 
+  buttonClick = (submittedIngredient) => {
+    // The below implementation is just to get this off the ground. It is by no means the most optimal way to do it, and I'd expect any auto-complete, clickable options functionality to do something more
+    const fullIngredientList = this.state.fullIngredientList;
+    //localeCompare with the options below does case-insensitive string comparison
+    const matchingIdx = fullIngredientList.findIndex(ingredient => ingredient.name.localeCompare(submittedIngredient, undefined, {sensitivity: 'base'}) === 0);
+    // findIndex() returns the index of the first element in the array that passes the test. Otherwise, -1.
+    if (matchingIdx !== -1) {
+      const newIngredient ={
+        name: fullIngredientList[matchingIdx].name,
+        description: fullIngredientList[matchingIdx].description,
+        imageUrl: fullIngredientList[matchingIdx].imageUrl
+      };
+      this.props.addKitchenIngredient(newIngredient);
+    } else {
+      console.log('Not a valid ingredient!');
+    }
+  };
+
   handleSearch = event => {
     let word = event.target.value;
     if (word.length > 1) {
       let ingredients = this.state.fullIngredientTrie.returnPossibleWords(word);
       this.setState({ currentSearch: ingredients });
     } else {
-      this.setState({ currentSearch: [String] });
+      this.setState({ currentSearch: [] });
     }
   }
 
@@ -84,11 +108,21 @@ class MyKitchen extends React.Component {
               <Form.Label >
 
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
-                {this.state.currentSearch.length > 0 && 
+                {this.state.currentSearch.length > 1 && 
                   <div class="searchOptions">
-                    <ul>
-                      {this.state.currentSearch.map(element => <li>{element}</li>).join('')};
-                    </ul>
+                    
+                      {/* {this.state.currentSearch.map(element => {console.log(element)
+                        return(<li>{element}</li>)}).join('')}; */}
+
+                        {/* {this.state.currentSearch.map(element => (
+                          <li>{element}</li>
+                        )
+                          )} */}
+                          {this.state.currentSearch.map(element => {                          
+                          return <Button variant="light" onClick={() => this.buttonClick(element)}>{element}</Button>
+                          }
+                          )}
+                    
                   </div>
                 }
 
