@@ -18,12 +18,14 @@ class Trie {
       let characterExists = false;
       for (let j = 0; j < currentNode.nextElements.length; j++) {
         let nextChar = currentNode.nextElements[j].element;
-        if (nextChar === arr[i]) {
+        if (nextChar.localeCompare(arr[i], undefined, {sensitivity: 'base'}) === 0) {
           currentNode = currentNode.nextElements[j];
           characterExists=true;
           break;
         }
       }
+
+      
       if(!characterExists){
         let position = currentNode.nextElements.length;
         currentNode.nextElements.push(new Node(arr[i]));
@@ -44,7 +46,7 @@ class Trie {
       let characterExists = false;
       for (let j = 0; j < currentNode.nextElements.length; j++){
         let nextChar = currentNode.nextElements[j].element;
-        if (nextChar === arr[i]) {
+        if (nextChar.localeCompare(arr[i], undefined, {sensitivity: 'base'}) === 0) {
           currentNode = currentNode.nextElements[j];
           characterExists=true;
           break;

@@ -14,9 +14,8 @@ class MyKitchen extends React.Component {
     super(props);
     this.state = {
       fullIngredientList: [],
-      currentSearch: [String],
-      fullIngredientTrie: Trie
-
+      currentSearch: [],
+      fullIngredientTrie: null
     };
   }
 
@@ -83,7 +82,18 @@ class MyKitchen extends React.Component {
             onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label >
+
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
+                {this.state.currentSearch.length > 0 && 
+                  <div class="searchOptions">
+                    <ul>
+                      {this.state.currentSearch.map(element => <li>{element}</li>).join('')};
+                    </ul>
+                  </div>
+                }
+
+                
+
               </Form.Label>
               <button type="submit" className="addIngredient"> Add Ingredient </button>
               <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
