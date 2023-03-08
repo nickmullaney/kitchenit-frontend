@@ -5,6 +5,7 @@ import './FilteredRecipes.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { withAuth0 } from '@auth0/auth0-react';
+import { motion as m } from 'framer-motion';
 
 class FilteredRecipes extends React.Component {
   constructor(props) {
@@ -78,8 +79,9 @@ class FilteredRecipes extends React.Component {
     return (
       // Only render components if there are ingredients in the kitchen and there are recipes returned from the server
       <div className='filteredBackground'>
+        <m.div className="motionDiv" initial={{opacity: 0, x:-1000}} animate={{opacity: 1, x:0}} transition={{duration: 1.5, ease: 'easeInOut'}}>
 
-        <Container>
+        <Container className='filteredRecipes'>
           <Row xs={2} s={3} md={4}>
 
 
@@ -92,10 +94,11 @@ class FilteredRecipes extends React.Component {
                 deleteCookbookRecipe={this.props.deleteCookbookRecipe}
 
               />
-            )) : <h2>No Recipes to Show!</h2>}
+            )) : <div className='noRecipe'><h2>No Recipes to Show!</h2></div>}
           </Row>
 
         </Container>
+      </m.div>
       </div>
     );
   }

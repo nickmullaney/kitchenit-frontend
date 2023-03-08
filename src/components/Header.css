@@ -42,11 +42,13 @@
   border-radius: 25px; 
 }
 
-.nav-item :hover {
+/* .nav-item :hover {
   transition: 1s;
-  color: #9d9080;
+  color: #000000;
   text-decoration: double;
-}
+  
+} */
+
 
 
 .nav-link :hover {
@@ -73,4 +75,26 @@
 .app-logo {
   display: inline-flex !important;
   border-radius: 0 0 25px 0;
+}
+
+.login{
+  background-color:transparent;
+  border: none;
+  color: #ffffff;
+  background-color: transparent;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.logout{
+  background-color:transparent;
+  border: none;
+  color: #ffffff;
+  background-color: transparent;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  font-size: 22px;
 }

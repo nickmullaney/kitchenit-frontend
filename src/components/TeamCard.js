@@ -24,7 +24,7 @@ class TeamCard extends Component {
             style={{ width: '20rem' }}
             initial={{ x: -10000 }}
             animate={{ x: 0 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 1 }}
             >
             <Card.Title as="h2">{authorInfo[0].name}</Card.Title>
             <Card.Img src={Matt} alt='Photos of Team Members' />
@@ -34,7 +34,7 @@ class TeamCard extends Component {
           <m.Card className="teamCard" style={{ width: '20rem' }}
             initial={{ x: -10000 }}
             animate={{ x: 0 }}
-            transition={{ duration: 3 }}>
+            transition={{ duration: 1.75 }}>
             <Card.Title as="h2">{authorInfo[1].name}</Card.Title>
             <Card.Img src={Nick} alt='Photos of Team Members' />
             <Card.Text>{authorInfo[1].description}</Card.Text>
@@ -43,7 +43,7 @@ class TeamCard extends Component {
           <m.Card className="teamCard" style={{ width: '20rem' }}
             initial={{ x: -10000 }}
             animate={{ x: 0 }}
-            transition={{ duration: 3 }}>
+            transition={{ duration: 2.5 }}>
             <Card.Title as="h2">{authorInfo[3].name}</Card.Title>
             <Card.Img src={Paula} alt='Photos of Team Members' />
             <Card.Text>{authorInfo[3].description}</Card.Text>
@@ -52,7 +52,7 @@ class TeamCard extends Component {
           <m.Card className="teamCard" style={{ width: '20rem' }}
             initial={{ x: -10000 }}
             animate={{ x: 0 }}
-            transition={{ duration: 3 }}>
+            transition={{ duration: 3.5 }}>
             <Card.Title as="h2">{authorInfo[2].name}</Card.Title>
             <Card.Img src={Jeremy} alt='Photos of Team Members' />
             <Card.Text>{authorInfo[2].description}</Card.Text>

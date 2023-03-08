@@ -79,8 +79,8 @@ class MyKitchen extends React.Component {
       <div className="myKitchenBackground">
         <m.div className="motionDiv" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.75, ease: 'easeInOut'}}>
 
-          <Form className="searchIngredients text-center"
-            onSubmit={this.handleSubmit}>
+          <m.Form className="searchIngredients text-center"
+            onSubmit={this.handleSubmit} transition={{duration: 1}} >
             <Form.Group>
               <Form.Label >
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
@@ -88,11 +88,15 @@ class MyKitchen extends React.Component {
               <button type="submit" className="addIngredient"> Add Ingredient </button>
               <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
             </Form.Group>
-          </Form>
+          </m.Form>
 
           <Row xs={2} s={2} md={3} lg={5} className="g-2">
             {this.props.kitchenIngredients.map((ingredient) => (
-              <Col key={ingredient._id}>
+              <m.Col key={ingredient._id}
+              initial={{x:-1000}}
+              animate={{ x: 0 }}
+              transition={{ ease: "easeOut", duration: 1.5 }}
+              >
 
                 <div className="kitchenItem">
                   <img src={ingredient.imageUrl} alt={ingredient.name} title={ingredient.name}/>
@@ -103,7 +107,7 @@ class MyKitchen extends React.Component {
                   ><FontAwesomeIcon icon={faTrashCan} /></Button>
                 </div>
 
-              </Col>
+              </m.Col>
 
             ))}
           </Row>
