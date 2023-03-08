@@ -1,13 +1,20 @@
 .navbar {
-  /* display: flex; */
-  /* flex-direction: row; */
-  background-color: rgb(251, 245, 237);
-  height: 5rem;
-  padding-bottom: 10rem;
+  background-color: transparent;
+  /* background-color: rgb(251, 245, 237); */
+  height: min-content;
+  max-height: fit-content;
+  flex-wrap: wrap;
+  margin-top: -1rem;
+  padding-bottom: -2rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -20px 36px -28px inset;
+  padding-right: 2rem;
+
+  /* padding-bottom: 10rem; */
   /* border: 1px solid black; */
   /* justify-content: space-between; */
 }
-
 
 .navbar > .container,
 .navbar > .container-fluid,
@@ -18,32 +25,39 @@
 .navbar > .container-xxl {
   justify-content: space-around;
   padding: 0.5rem;
+  width: 100vw;
 }
 
 .nav-link {
-  color: #814827;
+  color: #ffffff;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bolder;
   font-size: 22px;
-  /* background-color: #5e799e; */
   border-radius: 25px;
-  padding: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+}
+.nav-item{
+  background-color:#814827d1;
+  padding: .5rem;
+  border-radius: 25px; 
 }
 
 .nav-item :hover {
   transition: 1s;
-  color: #c06d1f;
+  color: #9d9080;
+  text-decoration: double;
+}
 
 
+.nav-link :hover {
+  text-decoration: double;
+  background-color: aliceblue;
 }
 
 .loginButton {
-  background-color: rgb(251, 245, 237);
+  background-color:transparent;
   border: none;
-  color: #814827;
+  color: #ffffff;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bolder;
@@ -51,8 +65,12 @@
 }
 
 .App-logo {
-  border-radius: 5px;
-  padding: 0.5rem;
+  border-radius: 0 0 20px 0;
   max-height: 8rem;
-  height:6rem;
+  height: 6rem;
+}
+
+.app-logo {
+  display: inline-flex !important;
+  border-radius: 0 0 25px 0;
 }

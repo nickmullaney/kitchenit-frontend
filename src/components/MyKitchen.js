@@ -1,55 +1,103 @@
 import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './MyKitchen.css';
 import { Button, Row, Col, Form } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import { motion as m } from 'framer-motion';
-
+import Trie from './Trie.js';
 
 class MyKitchen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      modalShow: false
+      fullIngredientList: [],
+      currentSearch: [],
+      fullIngredientTrie: null
     };
-    this.setModalShow = this.setModalShow.bind(this);
   }
 
-  setModalShow(show) {
-    this.setState({ modalShow: show });
+  componentDidMount() {    
+
+    // Load the full recipe list into state only if it has not yet been loaded
+    if (this.state.fullIngredientList.length === 0) {
+      this.getFullIngredientList();
+    }    
+    
   }
 
+  populateTrie = () => {
+    let Ingredients = new Trie();
+    this.state.fullIngredientList.forEach(element => Ingredients.insertWord(element.name));
+    this.setState({fullIngredientTrie: Ingredients});
+  }
+
+  getFullIngredientList = async () => {
+    const url = `${process.env.REACT_APP_SERVER}/ingredients/dictionary`;
+    try {
+      const response = await axios.get(url);
+      this.setState({ fullIngredientList: response.data}, this.populateTrie);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // The below implementation is just to get this off the ground. It is by no means the most optimal way to do it, and I'd expect any auto-complete, clickable options functionality to do something more
+    const fullIngredientList = this.state.fullIngredientList;
+    const submittedIngredient = e.target.ingredient.value;
+    //localeCompare with the options below does case-insensitive string comparison
+    const matchingIdx = fullIngredientList.findIndex(ingredient => ingredient.name.localeCompare(submittedIngredient, undefined, {sensitivity: 'base'}) === 0);
+    // findIndex() returns the index of the first element in the array that passes the test. Otherwise, -1.
+    if (matchingIdx !== -1) {
+      const newIngredient ={
+        name: fullIngredientList[matchingIdx].name,
+        description: fullIngredientList[matchingIdx].description,
+        imageUrl: fullIngredientList[matchingIdx].imageUrl
+      };
+      this.props.addKitchenIngredient(newIngredient);
+    } else {
+      console.log('Not a valid ingredient!');
+    }
+
+    e.target.reset();
+  };
+
+  buttonClick = (submittedIngredient) => {
+    // The below implementation is just to get this off the ground. It is by no means the most optimal way to do it, and I'd expect any auto-complete, clickable options functionality to do something more
+    const fullIngredientList = this.state.fullIngredientList;
+    //localeCompare with the options below does case-insensitive string comparison
+    const matchingIdx = fullIngredientList.findIndex(ingredient => ingredient.name.localeCompare(submittedIngredient, undefined, {sensitivity: 'base'}) === 0);
+    // findIndex() returns the index of the first element in the array that passes the test. Otherwise, -1.
+    if (matchingIdx !== -1) {
+      const newIngredient ={
+        name: fullIngredientList[matchingIdx].name,
+        description: fullIngredientList[matchingIdx].description,
+        imageUrl: fullIngredientList[matchingIdx].imageUrl
+      };
+      this.props.addKitchenIngredient(newIngredient);
+    } else {
+      console.log('Not a valid ingredient!');
+    }
+  };
+
+  handleSearch = event => {
+    let word = event.target.value;
+    if (word.length > 1) {
+      let ingredients = this.state.fullIngredientTrie.returnPossibleWords(word);
+      this.setState({ currentSearch: ingredients });
+    } else {
+      this.setState({ currentSearch: [] });
+    }
+  }
 
   render() {
     return (
-<<<<<<< HEAD
-      <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75, ease: "easeInOut" }}>
-        <Row xs={2} md={3} lg={6} className="g-2">
-          {Array.from({ length: 20 }).map((_, idx) => (
-            <Col>
-              {/* <Card style={{ width: '10rem', height: '10rem'}}>
-                <Card.Body>
-                  <Card.Title>Meat
-                  <Card.Img  src="https://baconmockup.com/100/50" padding="" />
-                  </Card.Title>
-                  <Card.Text>
-                  </Card.Text>
-                  <Button variant="danger"><FontAwesomeIcon icon={faTrashCan} /></Button>
-                </Card.Body>
-              </Card> */}
-
-              <div className="kitchenItem">
-                <img src="https://www.themealdb.com/images/ingredients/Lime-Small.png" alt="ingredient" />
-                <h2> Ingredient</h2>
-                <Button variant="danger"><FontAwesomeIcon icon={faTrashCan} /></Button>
-              </div>
-
-            </Col>
-          ))}
-        </Row>
-      </m.div>
-=======
 
       <div className="myKitchenBackground">
         <m.div className="motionDiv" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.75, ease: 'easeInOut'}}>
@@ -58,38 +106,47 @@ class MyKitchen extends React.Component {
             onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label >
-                <Form.Control type="text" id="getRecipes" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch}/>
+
+                <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
+                {this.state.currentSearch.length > 0 && 
+                  <div class="searchOptions">
+                    
+                          {this.state.currentSearch.map(element => {                          
+                          return <Button variant="light" onClick={() => this.buttonClick(element)}>{element}</Button>
+                          }
+                          )}
+                    
+                  </div>
+                }
+
+                
+
               </Form.Label>
-              <button type="submit" className="addIngedient"> Add Ingredient </button>
-              <button className="findRecipes" onClick={() => this.setModalShow(true)}> Find Your Recipes </button>
+              <button type="submit" className="addIngredient"> Add Ingredient </button>
+              <Link id='about' to="/filteredRecipes" className="findRecipes"> Search Recipes </Link>
             </Form.Group>
           </Form>
 
-
-
-          <Row xs={1} md={3} lg={6} className="g-2">
-            {Array.from({ length:20 }).map((_, idx) => (
-              <Col>
+          <Row xs={2} s={2} md={3} lg={5} className="g-2">
+            {this.props.kitchenIngredients.map((ingredient) => (
+              <Col key={ingredient._id}>
 
                 <div className="kitchenItem">
-                  <img src="https://www.themealdb.com/images/ingredients/Lime-Small.png" alt="ingredient"/>
-                  <h2> Ingredient</h2>
-                  <Button variant="danger"><FontAwesomeIcon icon={faTrashCan} /></Button>
+                  <img src={ingredient.imageUrl} alt={ingredient.name} title={ingredient.name}/>
+                  <h2>{ingredient.name}</h2>
+                  <Button
+                    variant="danger"
+                    onClick={() => this.props.deleteKitchenIngredient(ingredient._id)}
+                  ><FontAwesomeIcon icon={faTrashCan} /></Button>
                 </div>
 
               </Col>
 
             ))}
           </Row>
-
         </m.div>
       </div>
 
-
-
-
-
->>>>>>> 209f6e18a9aeec2b6f9903a1ae6456794304da1f
     );
   }
 }
