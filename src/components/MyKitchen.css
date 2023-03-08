@@ -1,62 +1,130 @@
-.myKitchenBackground{
-    background-color: transparent;
-    /* background-image: linear-gradient(rgb(59, 76, 100), rgb(134, 107, 97), rgb(251, 245, 237)); */
-    height: 100vh;
+.myKitchenBackground {
+  background-color: transparent;
+  /* background-image: linear-gradient(rgb(59, 76, 100), rgb(134, 107, 97), rgb(251, 245, 237)); */
+  min-height: 100vh;
+  height: 100%;
 }
 
-.kitchenItem{
-    display:flex;
-    align-items: center;
-    border: 1px solid slategray;
-    border-radius: 120px;
-    background-color: rgb(251, 245, 237);
-    padding: .5rem;
-    justify-content: space-evenly;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  
+.kitchenItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid slategray;
+  border-radius: 120px;
+  background-color: rgb(251, 245, 237);
+  padding: 0.5rem;
+  justify-content: space-around;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.kitchenItem img{
-border-radius: 50%;
-border: 1px solid black;
-object-fit: scale-down;
-width: 2.5rem;
-
+.kitchenItem img {
+  border-radius: 50%;
+  border: 1px solid black;
+  object-fit: scale-down;
+  width: 2.5rem;
 }
 
-.kitchenItem Button{
-    border-radius: 50%;
-    
+.kitchenItem h2 {
+  justify-content: center;
 }
 
-.g-2{
-    background:transparent;
+.kitchenItem Button {
+  border-radius: 50%;
 }
 
-form{
-    padding: 2rem;  
+.g-2 {
+  background: transparent;
+  align-items: center;
+  height: 100%;
 }
 
-
-.addIngredient{
-    background-color: #C06D1F;
-    width: fit-content;
-    border-radius: 25px;
-    margin: 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+form {
+  padding: 2rem;
 }
 
-.findRecipes{
-  background-color: #C06D1F;
+.ingredientRecipeSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-control-sm {
+  border: 2px solid gray;
+  background-color: #d8eff7;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  min-width: 20vw;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+.addIngredient {
+  background-color: #c06d1f;
   width: fit-content;
   border-radius: 25px;
   margin: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
+.findRecipes {
+  background-color: #c06d1f;
+  width: fit-content;
+  border-radius: 25px;
+  margin: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 
+.searchedItem {
+  transition: 1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.25rem;
+  min-width: 15vw;
+  align-items: center;
+  border: 1px solid slategray;
+  border-radius: 120px;
+  background-color: rgb(251, 245, 237);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: 17px;
+  text-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.btn-light {
+  transition: 1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.25rem;
+  min-width: 15vw;
+  align-items: center;
+  border: 1px solid slategray;
+  border-radius: 120px;
+  background-color: rgb(251, 245, 237);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
 
-.findRecipes{
+.searchOptions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 17vh;
+  z-index: 1;
+  margin: 0.5rem;
+  overflow-y:  scroll;
+  width: 100%;
+}
+
+.findRecipes {
   width: fit-content;
   align-items: center;
   appearance: none;
@@ -92,7 +160,6 @@ form{
   will-change: box-shadow, transform;
   font-size: 22px;
   font-weight: bolder;
-
 }
 .findRecipes:focus {
   box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -111,59 +178,56 @@ form{
   transform: translateY(2px);
 }
 
-
 .addIngredient {
-    width: fit-content;
-    align-items: center;
-    appearance: none;
-    background-image: radial-gradient(
-      100% 100% at 100% 0,
-      #d73838 0,
-      #c77014 100%
-    );
-    border: 0;
-    border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: "JetBrains Mono", monospace;
-    height: 48px;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    text-align: left;
-    text-decoration: none;
-    transition: box-shadow 0.15s, transform 0.15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: 22px;
-    font-weight: bolder;
-  }
-  
-  .addIngredient:focus {
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  }
-  
-  .addIngredient:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-    transform: translateY(-2px);
-  }
-  
-  .addIngredient:active {
-    box-shadow: #3c4fe0 0 3px 7px inset;
-    transform: translateY(2px);
-  }
+  width: fit-content;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #d73838 0,
+    #c77014 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 22px;
+  font-weight: bolder;
+}
 
-  
+.addIngredient:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.addIngredient:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.addIngredient:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
