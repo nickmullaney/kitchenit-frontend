@@ -111,13 +111,6 @@ class MyKitchen extends React.Component {
                 {this.state.currentSearch.length > 0 && 
                   <div class="searchOptions">
                     
-                      {/* {this.state.currentSearch.map(element => {console.log(element)
-                        return(<li>{element}</li>)}).join('')}; */}
-
-                        {/* {this.state.currentSearch.map(element => (
-                          <li>{element}</li>
-                        )
-                          )} */}
                           {this.state.currentSearch.map(element => {                          
                           return <Button variant="light" onClick={() => this.buttonClick(element)}>{element}</Button>
                           }
