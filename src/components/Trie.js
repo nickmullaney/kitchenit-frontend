@@ -40,7 +40,7 @@ class Trie {
     if(arr.length < 2){
       return [];
     }
-    let wordList = [String];
+    let wordList = [];
     let currentNode = this.root;
     for (let i = 0; i < arr.length; i++){
       let characterExists = false;
