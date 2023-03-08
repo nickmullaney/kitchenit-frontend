@@ -25,7 +25,7 @@ class MyKitchen extends React.Component {
     if (this.state.fullIngredientList.length === 0) {
       this.getFullIngredientList();
     }    
-    let Ingredients = new Trie;
+    let Ingredients = new Trie();
     this.state.fullIngredientList.forEach(element => Ingredients.insertWord(element.name));
     this.setState({fullIngredientTrie: Ingredients});
   }
