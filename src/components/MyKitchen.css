@@ -59,7 +59,7 @@ form {
 .form-label {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
 }
 .addIngredient {
   background-color: #c06d1f;
