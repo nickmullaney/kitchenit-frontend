@@ -108,7 +108,7 @@ class MyKitchen extends React.Component {
               <Form.Label >
 
                 <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients" size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }}/>
-                {this.state.currentSearch.length > 1 && 
+                {this.state.currentSearch.length > 0 && 
                   <div class="searchOptions">
                     
                       {/* {this.state.currentSearch.map(element => {console.log(element)
