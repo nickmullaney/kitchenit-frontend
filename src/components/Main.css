@@ -17,26 +17,25 @@
   flex-direction: column;
   top: 12rem;
   left: 12rem;
- width: fit-content;
+  width: 70%;
   height: fit-content;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .main-content-text {
-  max-width: 40vw;
+  max-width: 70vw;
   background-color: rgba(0, 0, 0, 0.598);
   color: rgb(255, 247, 236);
   padding: 1rem;
   border-radius: 20px;
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-  font-size:24px;
+  font-size: 24px;
   font-weight: bold;
-  max-height: 60vh;
-  overflow-y: scroll;
+  max-height: 80vh;
+  overflow-y:hidden;
 }
-
-
 
 .button {
   width: fit-content;
@@ -45,7 +44,7 @@
   appearance: none;
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #C06D1F 0,
+    #c06d1f 0,
     #814827 100%
   );
   border: 0;
