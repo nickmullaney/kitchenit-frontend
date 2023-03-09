@@ -82,7 +82,7 @@ class FilteredRecipes extends React.Component {
         <m.div className="motionDiv" initial={{opacity: 0, x:-1000}} animate={{opacity: 1, x:0}} transition={{duration: 1.5, ease: 'easeInOut'}}>
 
         <Container className='filteredRecipes'>
-          <Row xs={2} s={3} md={4}>
+          <Row xs={1} md={2} lg={3} xl={4}>
 
 
             {(this.props.kitchenIngredients.length > 0 && this.state.filteredRecipeList.length > 0) ? this.state.filteredRecipeList.map((recipe) => (
