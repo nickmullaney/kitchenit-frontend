@@ -12,7 +12,7 @@ No more staring aimlessly at your pantry, wondering what to cook with the ingred
 
 Use `npm install` to add the package.json dependencies
 
-[Live Site](XXX)
+[Live Site](https://kitchen-it.netlify.app/)
 
 ## Architecture
 
@@ -31,7 +31,7 @@ This is a frontend server for the KitchenIt app that utilizes React and Axios, a
 
 ## Change Log
 
-2023-03-XXTXX:XX-08:00 - XXX
+2023-03-08T21:48-08:00 - Deployment of v1.0
 
 ## Credit and Collaborations
 
