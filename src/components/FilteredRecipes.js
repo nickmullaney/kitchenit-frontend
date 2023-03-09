@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { withAuth0 } from '@auth0/auth0-react';
 import { motion as m } from 'framer-motion';
+import altLogo from '../img/chef-cooking.gif';
+import { Link } from 'react-router-dom';
 
 class FilteredRecipes extends React.Component {
   constructor(props) {
@@ -94,7 +96,7 @@ class FilteredRecipes extends React.Component {
                 deleteCookbookRecipe={this.props.deleteCookbookRecipe}
 
               />
-            )) : <div className='noRecipe'><h2>No Recipes to Show!</h2></div>}
+            )) : <div className='noRecipeBox'><img src={altLogo} alt={"Alt Logo"} height={220} width={225}/><div className='noRecipe'><Link id='home' to="/" className="nav-link">No Recipes to Show!</Link></div></div>}
           </Row>
 
         </Container>

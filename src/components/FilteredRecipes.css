@@ -113,6 +113,13 @@
 transform: translateY(-2px);
 }
 
+.noRecipeBox{
+  display: flex;
+  flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 .noRecipe{
   
   width: fit-content;
