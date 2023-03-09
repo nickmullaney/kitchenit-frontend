@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import { motion as m } from 'framer-motion';
 import CookbookRecipeCard from './CookbookRecipeCard';
 import './MyCookbook.css';
-import altLogo from '../img/chef-cooking.gif';
+// import altLogo from '../img/chef-cooking.gif';
 class MyCookbook extends React.Component {
 
   render() {
@@ -14,7 +14,7 @@ class MyCookbook extends React.Component {
   
             <Container>
               <Row className='row' xs={1} md={2} lg={3} xl={4}>
-              <img src={altLogo} alt={"Alt Logo"} height={220} width={125}/>
+              {/* <img src={altLogo} alt={"Alt Logo"} height={220} width={125}/> */}
                 {this.props.cookbookRecipes.map((recipe) => (
                   <CookbookRecipeCard
                     key={recipe._id}
