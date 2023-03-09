@@ -90,11 +90,16 @@ class MyKitchen extends React.Component {
 
   handleDeleteKitchenIngredient= async (id, ingredientName) => {
     this.props.deleteKitchenIngredient(id);
-      let updatedIngredients = [...this.state.currentSearch, ingredientName];
-      updatedIngredients = updatedIngredients.sort((a, b) => a.localeCompare(this.buttonClick, undefined, { sensitivity: 'base' }));
-      this.setState({
-        currentSearch: updatedIngredients,
-       });
+    // If currentSearch is empty, then don't add it back to the search options
+    if (this.state.currentSearch.length === 0 ){
+      return;
+    }
+
+    let updatedIngredients = [...this.state.currentSearch, ingredientName];
+    updatedIngredients = updatedIngredients.sort((a, b) => a.localeCompare(this.buttonClick, undefined, { sensitivity: 'base' }));
+    this.setState({
+      currentSearch: updatedIngredients,
+      });
   };
 
   render() {
