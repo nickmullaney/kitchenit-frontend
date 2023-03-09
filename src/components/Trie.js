@@ -36,6 +36,7 @@ class Trie {
   }
 
   returnPossibleWords(word){
+    word = this.titleCase(word);
     let arr = word.split('');
     if(arr.length < 2){
       return [];
@@ -68,6 +69,10 @@ class Trie {
     }
 
     return(wordList);
+  }
+
+  titleCase(string) {
+    return string.replace(/(^\w{1})|(\s+\w{1})/g, char => char.toUpperCase());
   }
 
   findPossibleWords(currentNode, currentWord, wordList){

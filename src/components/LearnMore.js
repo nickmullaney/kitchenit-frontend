@@ -20,7 +20,7 @@ class LearnMore extends Component {
         </Modal.Header>
         <Modal.Body>
           <ol>
-            <li>Sign in with your email address or verified account</li>
+            <li>Sign in with your verified Google account</li>
             <li>Add the ingredients you have in your kitchen.</li>
             <li>Search for recipes using your ingredients.</li>
             <li>Save the recipes you want to try or keep for later in your cookbook.</li>
