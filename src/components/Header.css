@@ -76,8 +76,6 @@
   cursor: pointer;
 }
 
-.App-logo :
-
 .app-logo {
   display: inline-flex !important;
   border-radius: 0 0 25px 0;
