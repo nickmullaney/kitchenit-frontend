@@ -8,6 +8,7 @@ import logo from '../img/logoT.png';
 import './Header.css';
 import { withAuth0 } from '@auth0/auth0-react';
 
+
 class Header extends React.Component {
   render() {
     return (

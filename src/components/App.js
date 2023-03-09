@@ -28,13 +28,7 @@ class App extends React.Component {
     };
   }
 
-  componentDidUpdate() {    
-    if(this.props.auth0.isAuthenticated && !this.state.dataIsLoaded){
-      this.getKitchenIngredients();
-      this.getCookbook();
-      this.setState({dataIsLoaded: true})
-    }
-  }
+  
 
   getCookbook = async () => {
     const url = `${process.env.REACT_APP_SERVER}/cookbook`;
