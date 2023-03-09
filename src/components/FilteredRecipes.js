@@ -96,7 +96,7 @@ class FilteredRecipes extends React.Component {
                 deleteCookbookRecipe={this.props.deleteCookbookRecipe}
 
               />
-            )) : <div className='noRecipeBox'><img src={altLogo} alt={"Alt Logo"} height={220} width={225}/><div className='noRecipe'><Link id='home' to="/" className="nav-link">No Recipes to Show!</Link></div></div>}
+            )) : <div className='noRecipeBox'><img src={altLogo} alt={"Alt Logo"} height={220} width={225}/><div className='noRecipe'><Link id='myKitchen' to="/myKitchen" className="nav-link">No Recipes to Show!</Link></div></div>}
           </Row>
 
         </Container>
