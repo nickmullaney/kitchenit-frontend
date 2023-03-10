@@ -1,6 +1,6 @@
 # kitchenit-frontend
 
-**Version**: 1.0.0
+**Version**: 1.0.1
 
 ## Overview
 
@@ -32,6 +32,7 @@ This is a frontend server for the KitchenIt app that utilizes React and Axios, a
 ## Change Log
 
 2023-03-08T21:48-08:00 - Deployment of v1.0
+2023-03-09T16:27-08:00 - v1.0.1: Added autofocus to search bar, as well as cleaned up corner case issues with auto-complete when adding and deleting ingredients
 
 ## Credit and Collaborations
 

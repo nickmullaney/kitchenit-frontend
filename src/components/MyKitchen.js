@@ -15,6 +15,7 @@ class MyKitchen extends React.Component {
     this.state = {
       fullIngredientList: [],
       kitchenIngredientSet: new Set(),
+      searchValue: '',
       currentSearch: [],
       fullIngredientTrie: null
     };
@@ -30,6 +31,8 @@ class MyKitchen extends React.Component {
       kitchenIngredientSet.add(ingredient.name);
     })
     this.setState({kitchenIngredientSet: kitchenIngredientSet});
+    // Focus on the search bar for typing on page load
+    this.inputFocus.focus();
   }
 
   populateTrie = () => {
@@ -75,6 +78,8 @@ class MyKitchen extends React.Component {
     } else {
       console.log('Not a valid ingredient!');
     }
+    // Focus on the search bar after an ingredient addition
+    this.inputFocus.focus();
   };
 
   handleSearch = event => {
@@ -82,24 +87,31 @@ class MyKitchen extends React.Component {
     if (word.length > 1) {
       let ingredients = this.state.fullIngredientTrie.returnPossibleWords(word);
       let filteredIngredients = ingredients.filter(ingredient => (!this.state.kitchenIngredientSet.has(ingredient)));
-      this.setState({ currentSearch: filteredIngredients });
+      this.setState({
+        currentSearch: filteredIngredients,
+        searchValue: word
+      });
     } else {
-      this.setState({ currentSearch: [] });
+      this.setState({
+        currentSearch: [],
+        searchValue: ''
+      });
     }
   }
 
   handleDeleteKitchenIngredient= async (id, ingredientName) => {
     this.props.deleteKitchenIngredient(id);
-    // If currentSearch is empty, then don't add it back to the search options
-    if (this.state.currentSearch.length === 0 ){
-      return;
-    }
-
-    let updatedIngredients = [...this.state.currentSearch, ingredientName];
-    updatedIngredients = updatedIngredients.sort((a, b) => a.localeCompare(this.buttonClick, undefined, { sensitivity: 'base' }));
+    const kitchenIngredientSet = this.state.kitchenIngredientSet;
+    kitchenIngredientSet.delete(ingredientName);
+    // We only want to add the ingredient to the filtered results if it is a valid option in based on the current search bar value
+    let ingredients = this.state.fullIngredientTrie.returnPossibleWords(this.state.searchValue);
+    let updatedIngredients = ingredients.filter(ingredient => (!kitchenIngredientSet.has(ingredient)));
     this.setState({
       currentSearch: updatedIngredients,
+      kitchenIngredientSet: kitchenIngredientSet
       });
+    // Focus on the search bar after an ingredient deletion
+    this.inputFocus.focus();
   };
 
   render() {
@@ -111,7 +123,9 @@ class MyKitchen extends React.Component {
             onSubmit={this.handleSubmit} transition={{ duration: 1 }} >
             <Form.Group className='ingredientRecipeSearch'>
               <Form.Label>
-                <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients..." size="sm" onInput={this.handleSearch} style={{ width: "500px", height: "50px" }} />
+                <Form.Control type="text" id="ingredient" placeholder="Enter Your Ingredients..." size="sm" onInput={this.handleSearch}
+                ref={ input => this.inputFocus = input}
+                style={{ width: "500px", height: "50px" }} />
                 {this.state.currentSearch.length > 0 &&
                   <div class="searchOptions">
                     {this.state.currentSearch.map(element => {
