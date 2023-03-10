@@ -1,6 +1,7 @@
 import React from "react";
 import altLogo from '../img/chef-cooking.gif';
 import Login from './Login';
+import './MyKitchen.css';
 
 class LoginRedirect extends React.Component {
   render() {

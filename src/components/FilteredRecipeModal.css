@@ -47,6 +47,15 @@
 
 .filteredRecipeModal {
   background-color: #c1a063;
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+}
+
+.filteredRecipeModal img{
+  border-radius: 20px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+  rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #2d1111 0 -3px 0 inset;
 }
 
 .filteredRecipeRemove {
