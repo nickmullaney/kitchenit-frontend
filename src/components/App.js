@@ -17,6 +17,7 @@ import React from 'react';
 import axios from 'axios';
 // import { Container } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
+import LoginRedirect from './LoginRedirect';
 
 class App extends React.Component {
   constructor(props) {
@@ -139,31 +140,31 @@ class App extends React.Component {
 
                 <Route
                   path={'/myKitchen'}
-                  element={this.props.auth0.isAuthenticated && <MyKitchen
+                  element={this.props.auth0.isAuthenticated ? <MyKitchen
                     kitchenIngredients={this.state.kitchenIngredients}
                     addKitchenIngredient={this.addKitchenIngredient}
                     deleteKitchenIngredient={this.deleteKitchenIngredient}
-                  />}
+                  /> : <LoginRedirect/>}
 
                 ></Route>
 
                 <Route
                   path={'/filteredRecipes'}
-                  element={this.props.auth0.isAuthenticated &&<FilteredRecipes
+                  element={this.props.auth0.isAuthenticated ?<FilteredRecipes
                     kitchenIngredients={this.state.kitchenIngredients}
                     cookbookRecipes={this.state.cookbookRecipes}
                     addRecipeToCookbook={this.addRecipeToCookbook}
                     deleteCookbookRecipe={this.deleteCookbookRecipe}
-                  />}
+                  /> : <LoginRedirect/>}
                 ></Route>
 
                 <Route
                   path={'/myCookbook'}
-                  element={this.props.auth0.isAuthenticated && <MyCookbook
+                  element={this.props.auth0.isAuthenticated ? <MyCookbook
                     kitchenIngredients={this.state.kitchenIngredients}
                     cookbookRecipes={this.state.cookbookRecipes}
                     deleteCookbookRecipe={this.deleteCookbookRecipe}
-                  />}
+                  /> : <LoginRedirect/>}
                 ></Route>
 
                 <Route
