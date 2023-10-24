@@ -42,3 +42,6 @@ This is a frontend server for the KitchenIt app that utilizes React and Axios, a
 - Nick Mullaney
 - Jeremy Adamson
 - Matt Austin
+
+## Live Presentation 
+[Live Demo](https://www.facebook.com/watch/live/?ref=watch_permalink&v=728436302071163)
